@@ -13,8 +13,8 @@ useful:
   name: Useful tasks
   control: hidden
   entities:
-    - script.heat_living
-    - script.heat_bedroom
+    - switch.heat_living
+    - switch.heat_bedroom
 
 living:
   name: Living Room

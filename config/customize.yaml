@@ -102,12 +102,6 @@ switch.floor_heater_living:
 switch.floor_heater_kitchen:
   friendly_name: キッチン 床暖
   icon: mdi:fire
-script.heat_living:
-  friendly_name: リビングあたため
-  icon: mdi:radiator
-script.heat_bedroom:
-  friendly_name: 寝室あたため
-  icon: mdi:radiator
 group.useful:
   friendly_name: 便利
 group.living:
@@ -119,3 +113,9 @@ group.bedroom:
   friendly_name: 寝室
 group.house:
   friendly_name: 家
+switch.heat_living:
+  friendly_name: リビングあたため
+  icon: mdi:radiator
+switch.heat_bedroom:
+  friendly_name: 寝室あたため
+  icon: mdi:radiator

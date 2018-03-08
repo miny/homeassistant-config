@@ -4,8 +4,8 @@
 
 - alias: Doorphone push
   trigger:
-    - platform: state
-      entity_id: sensor.doorphone
+    - platform: template
+      value_template: "{{ states.sensor.doorphone.attributes.number_of_files }}"
   condition:
     - condition: state
       entity_id: group.all_devices

@@ -261,6 +261,29 @@ switch:
     payload_off: "0"
     retain: true
 
+  - platform: template
+    switches:
+      heat_living:
+        value_template: >-
+          {{     is_state('climate.living_aircon', 'heat')
+             and is_state('switch.floor_heater_living', 'on')
+             and is_state('switch.floor_heater_kitchen', 'on') }}
+        turn_on:
+          service: script.turn_on
+          entity_id: script.heat_living
+        turn_off:
+          service: script.turn_on
+          entity_id: script.off_living
+      heat_bedroom:
+        value_template: >-
+          {{ is_state('climate.bedroom_aircon', 'heat') }}
+        turn_on:
+          service: script.turn_on
+          entity_id: script.heat_bedroom
+        turn_off:
+          service: script.turn_on
+          entity_id: script.off_bedroom
+
 lock:
   - platform: mqtt
     name: "Door Lock"
