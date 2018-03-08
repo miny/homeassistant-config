@@ -1,0 +1,288 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude:  !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 18
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Asia/Tokyo
+  # Customization file
+  customize: !include customize.yaml
+  # Customization globbing
+  customize_glob:
+    "script.notify_*":
+      hidden: true
+    "script.off_*":
+      hidden: true
+    "script.check_*":
+      hidden: true
+    "automation.*":
+      hidden: true
+
+recorder:
+  purge_interval: 2
+  purge_keep_days: 6
+  include:
+    entities:
+      - binary_sensor.dishwasher
+      - binary_sensor.workday_sensor
+    domains:
+      - sensor
+      - switch
+      - climate
+      - media_player
+      - device_tracker
+      - lock
+      #- binary_sensor
+      #- fan
+
+zone:
+  name: Home
+  latitude:  !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 450
+  icon: mdi:home
+
+proximity:
+  home:
+    devices:
+      - device_tracker.iphonex
+    tolerance: 100
+    unit_of_measurement: m
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  api_password: !secret http_password
+  base_url:     !secret http_base_url
+
+mqtt:
+  broker: !secret mqtt_broker
+
+netatmo:
+  api_key:    !secret netatmo_api_key
+  secret_key: !secret netatmo_secret_key
+  username:   !secret netatmo_username
+  password:   !secret netatmo_password
+
+wemo:
+  static:
+    - 192.168.0.37
+
+homekit:
+  pincode: !secret homekit_pincode
+
+ios:
+
+device_tracker:
+  - platform: bluetooth_tracker
+#  - platform: icloud
+#    username: !secret icloud_username
+#    password: !secret icloud_password
+#    consider_home: 900
+
+google_assistant:
+  project_id:   !secret google_project_id
+  client_id:    !secret google_client_id
+  access_token: !secret google_access_token
+  api_key:      !secret google_api_key
+  exposed_domains:
+    - climate
+    - fan
+    - media_player
+    - script
+#    - scene
+#  entity_config:
+#    climate.living_aircon:
+#      name: エアコン
+#    climate.bedroom_aircon:
+#      name: エアコン
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+#updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+#map:
+
+# Track the sun
+#sun:
+
+sensor:
+
+#  - platform: openweathermap
+#    api_key: 6a225d2b8b373226129785d154efd4c7
+#    language: ja
+#    forecast: true
+#    monitored_conditions:
+#      - weather
+#      - rain
+
+  - platform: scrape
+    resource: http://weather.livedoor.com/forecast/rss/area/130010.xml
+    name: weather_forecast
+    select: 'description:nth-of-type(3)'
+    value_template: '{{ value }}'
+
+  - platform: mqtt
+    state_topic: "sensor/watt"
+    name: 'House Power'
+    unit_of_measurement: 'W'
+  - platform: mqtt
+    state_topic: "sensor/outdoor/temperature"
+    name: 'Outdoor'
+  - platform: mqtt
+    state_topic: "sensor/living/temperature"
+    name: 'Living Temperature'
+  - platform: mqtt
+    state_topic: "sensor/living/humidity"
+    name: 'Living Humidity'
+    unit_of_measurement: '%'
+  - platform: mqtt
+    state_topic: "sensor/bedroom/temperature"
+    name: 'Bedroom Temperature'
+  - platform: mqtt
+    state_topic: "sensor/bedroom/humidity"
+    name: 'Bedroom Humidity'
+    unit_of_measurement: '%'
+
+  - platform: netatmo
+    modules:
+      House:
+        - temperature
+        - humidity
+        - pressure
+        - co2
+        - noise
+      Outdoor:
+        - temperature
+        - humidity
+
+binary_sensor:
+  - platform: workday
+    country: JP
+  - platform: template
+    sensors:
+      dishwasher:
+        delay_off:
+          minutes: 10
+        value_template: >-
+          {{ states.switch.washer.attributes.current_power_w|float > 5 }}
+
+fan:
+  - platform: mqtt
+    name: "Living Ceiling Fan"
+    command_topic: "fan/living/power"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: true
+    speeds:
+      - soft
+
+climate:
+  - platform: mqtt
+    name: "Living Aircon"
+    modes:
+      - "auto"
+      - "cool"
+      - "heat"
+      - "off"
+    swing_modes:
+      - auto
+    fan_modes:
+      - auto
+    current_temperature_topic: "sensor/living/temperature"
+    power_command_topic:       "aircon/living/power/set"
+    power_state_topic:         "aircon/living/power"
+    mode_command_topic:        "aircon/living/mode/set"
+    mode_state_topic:          "aircon/living/mode"
+    temperature_command_topic: "aircon/living/temperature/set"
+    temperature_state_topic:   "aircon/living/temperature"
+    payload_on: "ON"
+    payload_off: "OFF"
+
+  - platform: mqtt
+    name: "Bedroom Aircon"
+    modes:
+      - "auto"
+      - "cool"
+      - "heat"
+      - "off"
+    swing_modes:
+      - auto
+    fan_modes:
+      - auto
+    current_temperature_topic: "sensor/bedroom/temperature"
+    power_command_topic:       "aircon/bedroom/power/set"
+    power_state_topic:         "aircon/bedroom/power"
+    mode_command_topic:        "aircon/bedroom/mode/set"
+    mode_state_topic:          "aircon/bedroom/mode"
+    temperature_command_topic: "aircon/bedroom/temperature/set"
+    temperature_state_topic:   "aircon/bedroom/temperature"
+    payload_on: "ON"
+    payload_off: "OFF"
+
+switch:
+  - platform: mqtt
+    name: "Floor Heater Living"
+    command_topic: "dio/set0"
+    state_topic:   "dio/in0"
+    payload_on:  "1"
+    payload_off: "0"
+    retain: true
+  - platform: mqtt
+    name: "Floor Heater Kitchen"
+    command_topic: "dio/set1"
+    state_topic:   "dio/in1"
+    payload_on:  "1"
+    payload_off: "0"
+    retain: true
+
+lock:
+  - platform: mqtt
+    name: "Door Lock"
+    command_topic:  "dio/set3"
+    state_topic:    "dio/in3"
+    payload_lock:   "1"
+    payload_unlock: "0"
+    retain: true
+
+camera:
+  - platform: local_file
+    file_path: /config/doorphone/latest.jpg
+
+# Text to speech
+tts:
+  - platform: google
+    language: 'ja'
+    time_memory: 100
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+

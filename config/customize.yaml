@@ -1,0 +1,121 @@
+sensor.netatmo_house_wifi:
+  hidden: true
+sensor.outdoor:
+  friendly_name: 屋外気温 (北)
+  icon: mdi:thermometer
+  unit_of_measurement: ℃
+sensor.netatmo_house_temperature:
+  friendly_name: コーナー 気温
+sensor.netatmo_house_pressure:
+  friendly_name: 気圧
+sensor.netatmo_house_noise:
+  friendly_name: 騒音
+sensor.netatmo_house_co2:
+  friendly_name: CO2
+sensor.netatmo_house_humidity:
+  friendly_name: コーナー 湿度
+  icon: mdi:water
+climate.living_aircon:
+  friendly_name: リビング エアコン
+  icon: mdi:air-conditioner
+  max_temp: 30
+  min_temp: 20
+climate.bedroom_aircon:
+  friendly_name: 寝室 エアコン
+  icon: mdi:air-conditioner
+  max_temp: 30
+  min_temp: 20
+sensor.weather_symbol:
+  friendly_name: 天気
+fan.living_ceiling_fan:
+  friendly_name: リビング シーリングファン
+sensor.bedroom_humidity:
+  friendly_name: 寝室 湿度
+  icon: mdi:water
+sensor.living_humidity:
+  friendly_name: リビング 湿度
+  icon: mdi:water
+sensor.living_temperature:
+  friendly_name: リビング 気温
+  icon: mdi:thermometer
+  unit_of_measurement: ℃
+sensor.bedroom_temperature:
+  friendly_name: 寝室 気温
+  icon: mdi:thermometer
+  unit_of_measurement: ℃
+device_tracker.iphonex:
+  hidden: true
+  interval: 10800
+proximity.home:
+  hidden: true
+device_tracker.iphone_se:
+  hidden: true
+sensor.netatmo_outdoor_radio:
+  hidden: true
+sensor.netatmo_outdoor_battery:
+  hidden: true
+sensor.netatmo_outdoor_humidity:
+  friendly_name: 屋外湿度
+  icon: mdi:water
+sensor.netatmo_outdoor_temperature:
+  friendly_name: 屋外気温 (南)
+sensor.house_power:
+  friendly_name: 電力
+  icon: mdi:lightbulb-on
+sensor.iphone_se_battery_level:
+  hidden: true
+sensor.iphone_se_battery_state:
+  hidden: true
+sensor.iphonex_battery_level:
+  hidden: true
+sensor.iphonex_battery_state:
+  hidden: true
+sensor.netatmo_house_humidity_2:
+  hidden: true
+sensor.netatmo_house_noise_2:
+  hidden: true
+sensor.netatmo_house_pressure_2:
+  hidden: true
+sensor.netatmo_house_temperature_2:
+  hidden: true
+  homebridge_hidden: true
+sensor.netatmo_outdoor_humidity_2:
+  hidden: true
+sensor.netatmo_house_co2_2:
+  hidden: true
+sensor.netatmo_outdoor_temperature_2:
+  hidden: true
+  homebridge_hidden: true
+binary_sensor.dishwasher:
+  friendly_name: 食洗機
+media_player.google_living:
+  hidden: true
+binary_sensor.workday_sensor:
+  friendly_name: 平日
+  hidden: true
+sensor.weather_forecast:
+  friendly_name: 天気予報
+  hidden: true
+switch.floor_heater_living:
+  friendly_name: リビング 床暖
+  icon: mdi:fire
+switch.floor_heater_kitchen:
+  friendly_name: キッチン 床暖
+  icon: mdi:fire
+script.heat_living:
+  friendly_name: リビングあたため
+  icon: mdi:radiator
+script.heat_bedroom:
+  friendly_name: 寝室あたため
+  icon: mdi:radiator
+group.useful:
+  friendly_name: 便利
+group.living:
+  friendly_name: リビング
+  icon: mdi:silverware
+group.music:
+  friendly_name: 音楽
+group.bedroom:
+  friendly_name: 寝室
+group.house:
+  friendly_name: 家

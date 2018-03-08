@@ -1,0 +1,167 @@
+- alias: Heat Bedroom Night
+  trigger:
+    - platform: time
+      at: '22:00:00'
+    - platform: state
+      entity_id: group.all_devices
+      from: 'not_home'
+      to: 'home'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'home'
+      - condition: numeric_state
+        entity_id: sensor.outdoor
+        below: 16
+      - condition: time
+        after: '22:00:00'
+        before: '02:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.heat_bedroom
+
+- alias: Heat Living Night
+  trigger:
+    - platform: numeric_state
+      entity_id: proximity.home
+      below: 1500
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.outdoor
+        below: 16
+      - condition: time
+        after: '17:00:00'
+        before: '02:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.heat_living
+
+- alias: Heat Living Morning
+  trigger:
+    - platform: time
+      at: '07:10:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'home'
+      - condition: numeric_state
+        entity_id: sensor.outdoor
+        below: 16
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.heat_living
+
+- alias: Off Living Morning
+  trigger:
+    - platform: time
+      at: '08:59:00'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.off_living
+
+##
+## living fan automation
+##
+
+- alias: On Living Fan
+  trigger:
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'heat'
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'cool'
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'auto'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: fan.living_ceiling_fan
+
+- alias: Off Living Fan
+  trigger:
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: fan.living_ceiling_fan
+
+##
+## energy notification
+##
+
+- alias: Energy Warning
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.house_power
+      above: 5000
+  action:
+    - service: script.turn_on
+      entity_id: script.notify_energy
+
+- alias: Energy Critical
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.house_power
+      above: 5800
+  action:
+    - service: script.turn_on
+      entity_id: script.notify_energy
+
+##
+## tomorrow weather and informations
+##
+
+- alias: Tomorrow Info
+  trigger:
+    - platform: time
+      at: '00:00:00'
+    - platform: time
+      at: '01:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.notify_weather
+
+##
+## FFxiv kujitenda
+##
+
+- alias: Kujitenda start
+  trigger:
+    - platform: time
+      at: '21:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: script.turn_on
+      entity_id: script.notify_kujitenda0
+
+- alias: Kujitenda end
+  trigger:
+    - platform: time
+      at: '21:50:00'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+  action:
+    - service: script.turn_on
+      entity_id: script.notify_kujitenda1
+
+
