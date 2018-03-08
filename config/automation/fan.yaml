@@ -1,0 +1,28 @@
+##
+## living fan automation
+##
+
+- alias: On Living Fan
+  trigger:
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'heat'
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'cool'
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'auto'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: fan.living_ceiling_fan
+
+- alias: Off Living Fan
+  trigger:
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: fan.living_ceiling_fan
+

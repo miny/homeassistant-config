@@ -1,0 +1,57 @@
+heat_living:
+  alias: Heat Living
+  sequence:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.living_aircon
+        operation_mode: heat
+    - service: switch.turn_on
+      entity_id: switch.floor_heater_living
+    - service: switch.turn_on
+      entity_id: switch.floor_heater_kitchen
+
+heat_bedroom:
+  alias: Heat Bedroom
+  sequence:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.bedroom_aircon
+        operation_mode: heat
+
+cool_living:
+  alias: Cool Living
+  sequence:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.living_aircon
+        operation_mode: cool
+
+cool_bedroom:
+  alias: Cool Bedroom
+  sequence:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.bedroom_aircon
+        operation_mode: cool
+
+off_living:
+  alias: Off Living
+  sequence:
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_living
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_kitchen
+    - condition: template
+      value_template: "{{ not is_state('climate.living_aircon', 'off') }}"
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.living_aircon
+        operation_mode: off
+
+off_bedroom:
+  alias: Off Bedroom
+  sequence:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.bedroom_aircon
+        operation_mode: off

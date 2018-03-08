@@ -1,0 +1,66 @@
+notify_energy:
+  alias: Notify Energy
+  sequence:
+    - service: media_player.google_living
+      data_template:
+        entity_id: media_player.google_living
+        volume_level: 0.7
+    - service: tts.google_say
+      entity_id: media_player.google_living
+      data_template:
+        message: >
+          電力は {{states('sensor.house_power')}} watt です。
+
+notify_kujitenda0:
+  alias: Notify Kujitenda Start
+  sequence:
+    - service: script.notify_speech
+      data:
+        message: "ジャンボくじテンダーの時間ですよ。"
+
+notify_kujitenda1:
+  alias: Notify Kujitenda End
+  sequence:
+    - service: script.notify_speech
+      data:
+        message: "ジャンボくじテンダーの交換しましたか？"
+
+#notify_weather:
+#  alias: Notify Weather
+#  sequence:
+#    - service: media_player.google_living
+#      data_template:
+#        entity_id: media_player.google_living
+#        volume_level: 0.7
+#    - service: tts.google_say
+#      entity_id: media_player.google_living
+#      data_template:
+#        message: >
+#          {{states('sensor.weather_forecast')}}
+
+notify_weather:
+  alias: Notify Weather
+  sequence:
+    - service: media_player.google_living
+      data_template:
+        entity_id: media_player.google_living
+        volume_level: 0.7
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.google_living
+        media_content_id: 'http://minabe.org/forecast.wav'
+        media_content_type: 'audio/wav'
+
+notify_speech:
+  alias: Notify Speech
+  sequence:
+    - service: media_player.google_living
+      data_template:
+        entity_id: media_player.google_living
+        volume_level: 0.6
+    - service: tts.google_say
+      entity_id: media_player.google_living
+      data_template:
+        message: "{{ message }}"
+
+

@@ -1,0 +1,24 @@
+goodnight:
+  alias: Good Night
+  sequence:
+    - service: script.turn_on
+      entity_id: script.off_living
+    - service: script.turn_on
+      entity_id: script.check_dishwasher
+    - delay:
+        minutes: 3
+    - service: script.turn_on
+      entity_id: script.off_bedroom
+
+check_dishwasher:
+  alias: Check Dishwasher
+  sequence:
+    - condition: state
+      entity_id: binary_sensor.dishwasher
+      state: 'off'
+    - service: tts.google_say
+      entity_id: media_player.google_living
+      data_template:
+        message: >
+          食洗機がついてません。
+

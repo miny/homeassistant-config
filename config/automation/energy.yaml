@@ -1,0 +1,22 @@
+##
+## energy notification
+##
+
+- alias: Energy Warning
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.house_power
+      above: 5000
+  action:
+    - service: script.turn_on
+      entity_id: script.notify_energy
+
+- alias: Energy Critical
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.house_power
+      above: 5800
+  action:
+    - service: script.turn_on
+      entity_id: script.notify_energy
+

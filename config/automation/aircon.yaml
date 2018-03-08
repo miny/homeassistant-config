@@ -1,0 +1,78 @@
+##
+## Aircon and Floor heater
+##
+
+- alias: Heat Bedroom Night
+  trigger:
+    - platform: time
+      at: '22:00:00'
+    - platform: state
+      entity_id: group.all_devices
+      from: 'not_home'
+      to: 'home'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'home'
+      - condition: numeric_state
+        entity_id: sensor.outdoor
+        below: 16
+      - condition: time
+        after: '22:00:00'
+        before: '02:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.heat_bedroom
+
+- alias: Heat Living Night
+  trigger:
+    - platform: numeric_state
+      entity_id: proximity.home
+      below: 1500
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.outdoor
+        below: 16
+      - condition: time
+        after: '17:00:00'
+        before: '02:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.heat_living
+
+- alias: Heat Living Morning
+  trigger:
+    - platform: time
+      at: '07:10:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'home'
+      - condition: numeric_state
+        entity_id: sensor.outdoor
+        below: 16
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.heat_living
+
+- alias: Off Living Morning
+  trigger:
+    - platform: time
+      at: '08:59:00'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.off_living
+

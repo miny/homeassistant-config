@@ -1,0 +1,21 @@
+##
+## Doorphone
+##
+
+- alias: Doorphone push
+  trigger:
+    - platform: state
+      entity_id: sensor.doorphone
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'not_home'
+  action:
+    - service: notify.ios_iphonex
+      data:
+        message: "自宅に訪問者がいます"
+        data:
+          push:
+            sound: "US-EN-Morgan-Freeman-Someone-Is-Arriving.wav"
+
+
