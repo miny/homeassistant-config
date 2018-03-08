@@ -146,7 +146,7 @@
 
 - alias: Doorphone push
   trigger:
-    - platform: numeric_state
+    - platform: state
       entity_id: sensor.doorphone
   condition:
     - condition: state
