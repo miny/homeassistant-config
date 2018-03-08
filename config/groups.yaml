@@ -6,6 +6,7 @@ default_view:
     - group.living
     - group.bedroom
     - group.house
+    - camera.doorphone
     - group.music
 
 useful:

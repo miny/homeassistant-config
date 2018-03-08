@@ -10,6 +10,9 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Asia/Tokyo
+  # can access dirs
+  whitelist_external_dirs:
+    - '/config/doorphone'
   # Customization file
   customize: !include customize.yaml
   # Customization globbing
@@ -135,14 +138,6 @@ logbook:
 
 sensor:
 
-#  - platform: openweathermap
-#    api_key: 6a225d2b8b373226129785d154efd4c7
-#    language: ja
-#    forecast: true
-#    monitored_conditions:
-#      - weather
-#      - rain
-
   - platform: scrape
     resource: http://weather.livedoor.com/forecast/rss/area/130010.xml
     name: weather_forecast
@@ -170,6 +165,9 @@ sensor:
     state_topic: "sensor/bedroom/humidity"
     name: 'Bedroom Humidity'
     unit_of_measurement: '%'
+
+  - platform: folder
+    folder: /config/doorphone
 
   - platform: netatmo
     modules:
@@ -274,6 +272,7 @@ lock:
 
 camera:
   - platform: local_file
+    name: Doorphone
     file_path: /config/doorphone/latest.jpg
 
 # Text to speech
