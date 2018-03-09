@@ -1,0 +1,58 @@
+# sensors
+
+- platform: mqtt
+  state_topic: "sensor/watt"
+  name: 'House Power'
+  unit_of_measurement: 'W'
+- platform: mqtt
+  state_topic: "sensor/outdoor/temperature"
+  name: 'Outdoor'
+- platform: mqtt
+  state_topic: "sensor/living/temperature"
+  name: 'Living Temperature'
+- platform: mqtt
+  state_topic: "sensor/living/humidity"
+  name: 'Living Humidity'
+  unit_of_measurement: '%'
+- platform: mqtt
+  state_topic: "sensor/bedroom/temperature"
+  name: 'Bedroom Temperature'
+- platform: mqtt
+  state_topic: "sensor/bedroom/humidity"
+  name: 'Bedroom Humidity'
+  unit_of_measurement: '%'
+
+- platform: folder
+  folder: /config/doorphone
+
+- platform: template
+  sensors:
+    doorphone_counter:
+      value_template: "{{ states.sensor.doorphone.attributes.number_of_files }}"
+
+- platform: file
+  name: trash_day
+  file_path: /config/text/gomi.txt
+
+- platform: file
+  name: weather_forecast
+  file_path: /config/text/forecast.txt
+
+#- platform: scrape
+#  resource: http://weather.livedoor.com/forecast/rss/area/130010.xml
+#  name: weather_forecast
+#  select: 'description:nth-of-type(3)'
+#  value_template: '{{ value }}'
+
+- platform: netatmo
+  modules:
+    House:
+      - temperature
+      - humidity
+      - pressure
+      - co2
+      - noise
+    Outdoor:
+      - temperature
+      - humidity
+

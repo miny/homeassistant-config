@@ -119,3 +119,8 @@ switch.heat_living:
 switch.heat_bedroom:
   friendly_name: 寝室あたため
   icon: mdi:radiator
+sensor.doorphone_counter:
+  hidden: true
+device_tracker.iphonex_2:
+  friendly_name: iPhoneX_bt
+  hidden: true

@@ -1,0 +1,45 @@
+##
+## door / doorphone
+##
+
+- alias: Door unlock
+  trigger:
+    - platform: state
+      entity_id: lock.door_lock
+      to: 'unlocked'
+      for:
+        minutes: 5
+    - platform: state
+      entity_id: lock.door_lock
+      to: 'unlocked'
+      for:
+        minutes: 15
+  condition:
+    - condition: state
+      entity_id: lock.door_lock
+      state: 'unlocked'
+  action:
+    - service: notify.ios_iphonex
+      data:
+        message: "鍵が開いてます"
+        data:
+          push:
+            sound: "se_chakushin.wav"
+
+- alias: Doorphone push
+  trigger:
+    - platform: state
+      entity_id: sensor.doorphone_counter
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'not_home'
+  action:
+    - service: notify.ios_iphonex
+      data:
+        message: "自宅に訪問者がいます"
+        data:
+          push:
+            sound: "se_pinpon.wav"
+
+

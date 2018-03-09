@@ -40,8 +40,6 @@ recorder:
       - media_player
       - device_tracker
       - lock
-      #- binary_sensor
-      #- fan
 
 zone:
   name: Home
@@ -106,11 +104,6 @@ google_assistant:
     - media_player
     - script
 #    - scene
-#  entity_config:
-#    climate.living_aircon:
-#      name: エアコン
-#    climate.bedroom_aircon:
-#      name: エアコン
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -136,50 +129,8 @@ logbook:
 # Track the sun
 #sun:
 
-sensor:
-
-  - platform: scrape
-    resource: http://weather.livedoor.com/forecast/rss/area/130010.xml
-    name: weather_forecast
-    select: 'description:nth-of-type(3)'
-    value_template: '{{ value }}'
-
-  - platform: mqtt
-    state_topic: "sensor/watt"
-    name: 'House Power'
-    unit_of_measurement: 'W'
-  - platform: mqtt
-    state_topic: "sensor/outdoor/temperature"
-    name: 'Outdoor'
-  - platform: mqtt
-    state_topic: "sensor/living/temperature"
-    name: 'Living Temperature'
-  - platform: mqtt
-    state_topic: "sensor/living/humidity"
-    name: 'Living Humidity'
-    unit_of_measurement: '%'
-  - platform: mqtt
-    state_topic: "sensor/bedroom/temperature"
-    name: 'Bedroom Temperature'
-  - platform: mqtt
-    state_topic: "sensor/bedroom/humidity"
-    name: 'Bedroom Humidity'
-    unit_of_measurement: '%'
-
-  - platform: folder
-    folder: /config/doorphone
-
-  - platform: netatmo
-    modules:
-      House:
-        - temperature
-        - humidity
-        - pressure
-        - co2
-        - noise
-      Outdoor:
-        - temperature
-        - humidity
+climate: !include climate.yaml
+sensor: !include sensor.yaml
 
 binary_sensor:
   - platform: workday
@@ -201,49 +152,6 @@ fan:
     optimistic: true
     speeds:
       - soft
-
-climate:
-  - platform: mqtt
-    name: "Living Aircon"
-    modes:
-      - "auto"
-      - "cool"
-      - "heat"
-      - "off"
-    swing_modes:
-      - auto
-    fan_modes:
-      - auto
-    current_temperature_topic: "sensor/living/temperature"
-    power_command_topic:       "aircon/living/power/set"
-    power_state_topic:         "aircon/living/power"
-    mode_command_topic:        "aircon/living/mode/set"
-    mode_state_topic:          "aircon/living/mode"
-    temperature_command_topic: "aircon/living/temperature/set"
-    temperature_state_topic:   "aircon/living/temperature"
-    payload_on: "ON"
-    payload_off: "OFF"
-
-  - platform: mqtt
-    name: "Bedroom Aircon"
-    modes:
-      - "auto"
-      - "cool"
-      - "heat"
-      - "off"
-    swing_modes:
-      - auto
-    fan_modes:
-      - auto
-    current_temperature_topic: "sensor/bedroom/temperature"
-    power_command_topic:       "aircon/bedroom/power/set"
-    power_state_topic:         "aircon/bedroom/power"
-    mode_command_topic:        "aircon/bedroom/mode/set"
-    mode_state_topic:          "aircon/bedroom/mode"
-    temperature_command_topic: "aircon/bedroom/temperature/set"
-    temperature_state_topic:   "aircon/bedroom/temperature"
-    payload_on: "ON"
-    payload_off: "OFF"
 
 switch:
   - platform: mqtt
@@ -292,7 +200,7 @@ lock:
     payload_lock:   "1"
     payload_unlock: "0"
     retain: true
-
+ 
 camera:
   - platform: local_file
     name: Doorphone
