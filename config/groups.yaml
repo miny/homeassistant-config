@@ -1,13 +1,13 @@
-default_view:
-  view: yes
-  icon: mdi:home
-  entities:
-    - group.useful
-    - group.living
-    - group.bedroom
-    - group.house
-    - camera.doorphone
-    - group.music
+#default_view:
+#  view: yes
+#  icon: mdi:home
+#  entities:
+#    - group.useful
+#    - group.living
+#    - group.bedroom
+#    - group.house
+#    - camera.doorphone
+#    - group.music
 
 useful:
   name: Useful tasks
@@ -42,6 +42,7 @@ house:
   name: House
   control: hidden
   entities:
+    - lock.door_lock
     - sensor.house_power
     - sensor.outdoor
     - sensor.netatmo_outdoor_temperature

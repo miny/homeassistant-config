@@ -17,11 +17,7 @@ homeassistant:
   customize: !include customize.yaml
   # Customization globbing
   customize_glob:
-    "script.notify_*":
-      hidden: true
-    "script.off_*":
-      hidden: true
-    "script.check_*":
+    "script.*":
       hidden: true
     "automation.*":
       hidden: true
@@ -87,7 +83,7 @@ homekit:
 ios:
 
 device_tracker:
-  - platform: bluetooth_tracker
+#  - platform: bluetooth_tracker
 #  - platform: icloud
 #    username: !secret icloud_username
 #    password: !secret icloud_password

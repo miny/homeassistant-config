@@ -124,3 +124,9 @@ sensor.doorphone_counter:
 device_tracker.iphonex_2:
   friendly_name: iPhoneX_bt
   hidden: true
+switch.washer:
+  hidden: true
+sensor.doorphone:
+  hidden: true
+sensor.trash_day:
+  hidden: true
