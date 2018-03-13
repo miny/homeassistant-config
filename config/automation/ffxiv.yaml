@@ -11,8 +11,14 @@
       weekday:
         - sat
   action:
-    - service: script.turn_on
-      entity_id: script.notify_kujitenda0
+    - service: tts.google_say
+      entity_id: media_player.google_living
+      data_template:
+        message: >
+          {{ [
+          "ジャンボくじテンダーの時間ですよ。",
+          "ジャンボくじテンダーの時間になりました。"
+          ] | random }}
 
 - alias: Kujitenda end
   trigger:
@@ -23,6 +29,12 @@
       weekday:
         - sat
   action:
-    - service: script.turn_on
-      entity_id: script.notify_kujitenda1
-
+    - service: tts.google_say
+      entity_id: media_player.google_living
+      data_template:
+        message: >
+          {{ [
+          "ジャンボくじテンダーの交換しましたか？",
+          "ジャンボくじテンダーの時間、終わっちゃうよ？"
+          ] | random }}
+ 

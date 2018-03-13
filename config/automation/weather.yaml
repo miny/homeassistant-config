@@ -9,6 +9,15 @@
     - platform: time
       at: '01:00:00'
   action:
-    - service: script.turn_on
-      entity_id: script.notify_weather
+    - service: tts.google_say
+      entity_id: media_player.google_living
+      data_template:
+        message: >
+          {{ states('sensor.weather_forecast') }}
+          {{ states('sensor.weather_forecast') }}
+          {% if not is_state('sensor.trash_day', 'off') %}
+            "あと、"
+            {{ states('sensor.trash_day') }}
+            {{ states('sensor.trash_day') }}
+          {% endif %}
 
