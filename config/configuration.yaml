@@ -36,6 +36,10 @@ recorder:
       - media_player
       - device_tracker
       - lock
+  exclude:
+    entities:
+      - switch.blind
+      - switch.ceiling_fan
 
 zone:
   name: Home
