@@ -26,7 +26,7 @@ living:
     - sensor.netatmo_house_humidity
     - sensor.netatmo_house_co2
     - climate.living_aircon
-    - fan.living_ceiling_fan
+    - switch.ceiling_fan
     - switch.floor_heater_living
     - switch.floor_heater_kitchen
 

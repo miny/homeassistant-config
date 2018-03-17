@@ -97,9 +97,9 @@ google_assistant:
   api_key:      !secret google_api_key
   exposed_domains:
     - climate
-    - fan
     - media_player
     - script
+#    - fan
 #    - scene
 
 # Discover some devices automatically
@@ -132,15 +132,15 @@ binary_sensor:
         value_template: >-
           {{ states.switch.washer.attributes.current_power_w|float > 5 }}
 
-fan:
-  - platform: mqtt
-    name: "Living Ceiling Fan"
-    command_topic: "fan/living/power"
-    payload_on: "ON"
-    payload_off: "OFF"
-    optimistic: true
-    speeds:
-      - soft
+#fan:
+#  - platform: mqtt
+#    name: "Living Ceiling Fan"
+#    command_topic: "fan/living/power"
+#    payload_on: "ON"
+#    payload_off: "OFF"
+#    optimistic: true
+#    speeds:
+#      - soft
 
 lock:
   - platform: mqtt

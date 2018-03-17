@@ -130,3 +130,8 @@ sensor.doorphone:
   hidden: true
 sensor.trash_day:
   hidden: true
+switch.ceiling_fan:
+  friendly_name: シーリングファン
+  icon: mdi:fan
+switch.blind:
+  icon: mdi:blinds
