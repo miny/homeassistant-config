@@ -37,6 +37,24 @@
       turn_off:
         service: script.turn_on
         entity_id: script.off_bedroom
+    cool_living:
+      value_template: >-
+        {{ is_state('climate.living_aircon', 'cool') }}
+      turn_on:
+        service: script.turn_on
+        entity_id: script.cool_living
+      turn_off:
+        service: script.turn_on
+        entity_id: script.off_living
+    cool_bedroom:
+      value_template: >-
+        {{ is_state('climate.bedroom_aircon', 'cool') }}
+      turn_on:
+        service: script.turn_on
+        entity_id: script.cool_bedroom
+      turn_off:
+        service: script.turn_on
+        entity_id: script.off_bedroom
 
 - platform: broadlink
   host: 192.168.0.39

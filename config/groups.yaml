@@ -15,6 +15,8 @@ useful:
   entities:
     - switch.heat_living
     - switch.heat_bedroom
+#    - switch.cool_living
+#    - switch.cool_bedroom
 
 living:
   name: Living Room
