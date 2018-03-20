@@ -20,4 +20,7 @@
             {{ states('sensor.trash_day') }}
             {{ states('sensor.trash_day') }}
           {% endif %}
+          {% if not is_state('sensor.visit_schedule', '') %}
+            "明日は仕事の外出予定があります。"
+          {% endif %}
 

@@ -1,5 +1,7 @@
 # sensors
 
+- platform: season
+
 - platform: mqtt
   state_topic: "sensor/watt"
   name: 'House Power'
@@ -33,6 +35,10 @@
 - platform: file
   name: trash_day
   file_path: /config/text/gomi.txt
+
+- platform: file
+  name: visit_schedule
+  file_path: /config/text/schedule.txt
 
 - platform: file
   name: weather_forecast
