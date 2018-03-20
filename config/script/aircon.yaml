@@ -25,6 +25,10 @@ cool_living:
       data:
         entity_id: climate.living_aircon
         operation_mode: cool
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_living
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_kitchen
 
 cool_bedroom:
   alias: Cool Bedroom

@@ -135,3 +135,13 @@ switch.ceiling_fan:
   icon: mdi:fan
 switch.blind:
   icon: mdi:blinds
+sensor.visit_schedule:
+  hidden: true
+sun.sun:
+  hidden: true
+sensor.season:
+  hidden: true
+switch.cool_living:
+  friendly_name: リビング ひえひえ
+switch.cool_bedroom:
+  friendly_name: 寝室 ひえひえ

@@ -1,21 +1,15 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
   latitude:  !secret home_latitude
   longitude: !secret home_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 18
-  # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Asia/Tokyo
-  # can access dirs
+
   whitelist_external_dirs:
     - '/config/doorphone'
-  # Customization file
+
   customize: !include customize.yaml
-  # Customization globbing
   customize_glob:
     "script.*":
       hidden: true
@@ -40,6 +34,10 @@ recorder:
     entities:
       - switch.blind
       - switch.ceiling_fan
+      - sensor.season
+      - sensor.trash_day
+      - sensor.visit_schedule
+      - sensor.weather_forecast
 
 zone:
   name: Home
@@ -54,12 +52,6 @@ proximity:
       - device_tracker.iphonex
     tolerance: 100
     unit_of_measurement: m
-
-# Enables the frontend
-frontend:
-
-# Enables configuration UI
-config:
 
 http:
   api_password: !secret http_password
@@ -78,10 +70,10 @@ wemo:
   static:
     - 192.168.0.37
 
+ios:
+
 homekit:
   pincode: !secret homekit_pincode
-
-ios:
 
 device_tracker:
 #  - platform: bluetooth_tracker
@@ -99,23 +91,15 @@ google_assistant:
     - climate
     - media_player
     - script
-#    - fan
 #    - scene
 
-# Discover some devices automatically
+frontend:
+config:
 discovery:
-
-# Enables support for tracking state changes over time
 history:
-
-# View all events in a logbook
 logbook:
-
-# Enables a map showing the location of tracked devices
 #map:
-
-# Track the sun
-#sun:
+sun:
 
 switch: !include switch.yaml
 climate: !include climate.yaml
@@ -131,16 +115,6 @@ binary_sensor:
           minutes: 10
         value_template: >-
           {{ states.switch.washer.attributes.current_power_w|float > 5 }}
-
-#fan:
-#  - platform: mqtt
-#    name: "Living Ceiling Fan"
-#    command_topic: "fan/living/power"
-#    payload_on: "ON"
-#    payload_off: "OFF"
-#    optimistic: true
-#    speeds:
-#      - soft
 
 lock:
   - platform: mqtt
