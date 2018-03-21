@@ -1,0 +1,23 @@
+##
+## home
+##
+
+- alias: Return Home
+  trigger:
+    - platform: numeric_state
+      entity_id: proximity.home2
+      below: 2000
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.iphonex
+        state: 'home'
+  action:
+    - service: notify.ios_iphonex
+      data:
+        message: "そろそろ帰宅します"
+        data:
+          push:
+            sound: "se_chakushin.wav"
+

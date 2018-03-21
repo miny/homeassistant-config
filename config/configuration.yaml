@@ -52,6 +52,11 @@ proximity:
       - device_tracker.iphonex
     tolerance: 100
     unit_of_measurement: m
+  home2:
+    devices:
+      - device_tracker.iphone_se
+    tolerance: 100
+    unit_of_measurement: m
 
 http:
   api_password: !secret http_password
