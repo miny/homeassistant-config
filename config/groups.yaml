@@ -9,14 +9,37 @@
 #    - camera.doorphone
 #    - group.music
 
-useful:
-  name: Useful tasks
+useful_spring:
+  name: Useful Spring
   control: hidden
   entities:
     - switch.heat_living
     - switch.heat_bedroom
-#    - switch.cool_living
-#    - switch.cool_bedroom
+    - switch.cool_living
+    - switch.cool_bedroom
+
+useful_summer:
+  name: Useful Summer
+  control: hidden
+  entities:
+    - switch.cool_living
+    - switch.cool_bedroom
+
+useful_autumn:
+  name: Useful Autumn
+  control: hidden
+  entities:
+    - switch.heat_living
+    - switch.heat_bedroom
+    - switch.cool_living
+    - switch.cool_bedroom
+
+useful_winter:
+  name: Useful Winter
+  control: hidden
+  entities:
+    - switch.heat_living
+    - switch.heat_bedroom
 
 living:
   name: Living Room

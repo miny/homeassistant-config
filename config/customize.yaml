@@ -142,6 +142,18 @@ sun.sun:
 sensor.season:
   hidden: true
 switch.cool_living:
-  friendly_name: リビング ひえひえ
+  friendly_name: リビング 涼しく
+  icon: mdi:weather-windy
 switch.cool_bedroom:
-  friendly_name: 寝室 ひえひえ
+  friendly_name: 寝室 涼しく
+  icon: mdi:weather-windy
+group.useful_autumn:
+  friendly_name: 便利 (秋)
+group.useful_spring:
+  friendly_name: 便利 (春)
+group.useful_summer:
+  friendly_name: 便利 (夏)
+group.useful_winter:
+  friendly_name: 便利 (冬)
+proximity.home2:
+  hidden: true
