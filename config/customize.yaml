@@ -45,7 +45,6 @@ sensor.bedroom_temperature:
   unit_of_measurement: ℃
 device_tracker.iphonex:
   hidden: true
-  interval: 10800
 proximity.home:
   hidden: true
 device_tracker.iphone_se:
@@ -102,8 +101,6 @@ switch.floor_heater_living:
 switch.floor_heater_kitchen:
   friendly_name: キッチン 床暖
   icon: mdi:fire
-group.useful:
-  friendly_name: 便利
 group.living:
   friendly_name: リビング
   icon: mdi:silverware

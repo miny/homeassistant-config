@@ -45,8 +45,10 @@ off_living:
       entity_id: switch.floor_heater_living
     - service: switch.turn_off
       entity_id: switch.floor_heater_kitchen
-    - condition: template
-      value_template: "{{ not is_state('climate.living_aircon', 'off') }}"
+    - service: homeassistant.turn_off
+      entity_id: switch.ceiling_fan
+#    - condition: template
+#      value_template: "{{ not is_state('climate.living_aircon', 'off') }}"
     - service: climate.set_operation_mode
       data:
         entity_id: climate.living_aircon
