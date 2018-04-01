@@ -75,8 +75,10 @@ house:
     - sensor.netatmo_house_pressure
     - sensor.netatmo_house_noise
     - binary_sensor.dishwasher
-    - binary_sensor.workday_sensor
-    - sensor.weather_forecast
+    - binary_sensor.need_cool
+    - binary_sensor.need_heat
+    #- binary_sensor.workday_sensor
+    #- sensor.weather_forecast
     #- sensor.owm_condition
     #- sensor.owm_forecast
     #- sensor.owm_rain

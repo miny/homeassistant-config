@@ -23,6 +23,8 @@ recorder:
     entities:
       - binary_sensor.dishwasher
       - binary_sensor.workday_sensor
+      - binary_sensor.need_cool
+      - binary_sensor.need_heat
     domains:
       - sensor
       - switch
@@ -109,17 +111,7 @@ sun:
 switch: !include switch.yaml
 climate: !include climate.yaml
 sensor: !include sensor.yaml
-
-binary_sensor:
-  - platform: workday
-    country: JP
-  - platform: template
-    sensors:
-      dishwasher:
-        delay_off:
-          minutes: 10
-        value_template: >-
-          {{ states.switch.washer.attributes.current_power_w|float > 5 }}
+binary_sensor: !include binary_sensor.yaml
 
 lock:
   - platform: mqtt
