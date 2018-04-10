@@ -18,15 +18,12 @@
       - condition: state
         entity_id: group.all_devices
         state: 'home'
-      - condition: numeric_state
-        entity_id: sensor.outdoor
-        below: 16
       - condition: time
         after: '22:00:00'
         before: '02:00:00'
   action:
     - service: script.turn_on
-      entity_id: script.heat_bedroom
+      entity_id: script.heat_bedroom_demand
 
 - alias: Heat Living Night
   trigger:
@@ -36,15 +33,12 @@
   condition:
     condition: and
     conditions:
-      - condition: numeric_state
-        entity_id: sensor.outdoor
-        below: 16
       - condition: time
         after: '17:00:00'
         before: '02:00:00'
   action:
     - service: script.turn_on
-      entity_id: script.heat_living
+      entity_id: script.heat_living_demand
 
 - alias: Heat Living Morning
   trigger:
@@ -56,15 +50,12 @@
       - condition: state
         entity_id: group.all_devices
         state: 'home'
-      - condition: numeric_state
-        entity_id: sensor.outdoor
-        below: 14
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
   action:
     - service: script.turn_on
-      entity_id: script.heat_living
+      entity_id: script.heat_living_demand
 
 - alias: Off Living Morning
   trigger:

@@ -23,8 +23,6 @@ recorder:
     entities:
       - binary_sensor.dishwasher
       - binary_sensor.workday_sensor
-      - binary_sensor.need_cool
-      - binary_sensor.need_heat
     domains:
       - sensor
       - switch
@@ -107,6 +105,20 @@ history:
 logbook:
 #map:
 sun:
+
+input_number:
+  heat_temp:
+    name: Auto Heat Temp
+    initial: 15
+    min: 10
+    max: 16
+    step: 1
+  cool_temp:
+    name: Auto Cool Temp
+    initial: 28
+    min: 25
+    max: 30
+    step: 1
 
 switch: !include switch.yaml
 climate: !include climate.yaml
