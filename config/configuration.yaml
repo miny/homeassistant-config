@@ -8,6 +8,7 @@ homeassistant:
 
   whitelist_external_dirs:
     - '/config/doorphone'
+    - '/config/text'
 
   customize: !include customize.yaml
   customize_glob:
@@ -118,6 +119,8 @@ google_assistant:
     - script
 #    - scene
 
+alexa:
+
 frontend:
 config:
 discovery:
@@ -129,9 +132,9 @@ sun:
 input_number:
   heat_temp:
     name: Auto Heat Temp
-    initial: 15
+    initial: 16
     min: 10
-    max: 16
+    max: 20
     step: 1
   cool_temp:
     name: Auto Cool Temp
