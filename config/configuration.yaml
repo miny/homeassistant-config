@@ -78,7 +78,27 @@ wemo:
 ios:
 
 homekit:
-  pincode: !secret homekit_pincode
+  filter:
+    include_domains:
+      - climate
+      - switch
+    include_entities:
+      - sensor.living_temperature
+      - sensor.living_humidity
+      - sensor.bedroom_temperature
+      - sensor.bedroom_humidity
+      - sensor.outdoor
+      - sensor.netatmo_house_temperature
+      - sensor.netatmo_house_humidity
+      - sensor.netatmo_house_co2
+      - sensor.netatmo_house_noise
+      - sensor.netatmo_outdoor_temperature
+      - sensor.netatmo_outdoor_humidity
+    exclude_domains:
+      - script
+    exclude_entities:
+      - switch.washer
+      - switch.blind
 
 device_tracker:
 #  - platform: bluetooth_tracker
