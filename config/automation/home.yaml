@@ -6,7 +6,7 @@
   trigger:
     - platform: numeric_state
       entity_id: proximity.home2
-      below: 2000
+      below: 3000
   condition:
     condition: and
     conditions:
