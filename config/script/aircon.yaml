@@ -19,6 +19,9 @@ heat_living_demand:
       entity_id: switch.floor_heater_living
     - service: switch.turn_on
       entity_id: switch.floor_heater_kitchen
+    - condition: numeric_state
+      entity_id: sensor.living_temperature
+      below: 25
     - condition: template
       value_template: "{{ (states('sensor.outdoor')|float) <= ((states('input_number.heat_temp')|float)-3) }}"
     - service: climate.set_operation_mode
@@ -37,6 +40,9 @@ heat_bedroom:
 heat_bedroom_demand:
   alias: Heat Bedroom on Demand
   sequence:
+    - condition: numeric_state
+      entity_id: sensor.bedroom_temperature
+      below: 22
     - condition: template
       value_template: "{{ (states('sensor.outdoor')|float) <= ((states('input_number.heat_temp')|float)-1) }}"
     - service: climate.set_operation_mode
