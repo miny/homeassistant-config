@@ -14,16 +14,13 @@ heat_living_demand:
   alias: Heat Living on Demand
   sequence:
     - condition: template
-      value_template: "{{ (states('sensor.outdoor')|float) <= (states('input_number.heat_temp')|float) }}"
+      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float) }}"
     - service: switch.turn_on
       entity_id: switch.floor_heater_living
     - service: switch.turn_on
       entity_id: switch.floor_heater_kitchen
-    - condition: numeric_state
-      entity_id: sensor.living_temperature
-      below: 25
     - condition: template
-      value_template: "{{ (states('sensor.outdoor')|float) <= ((states('input_number.heat_temp')|float)-3) }}"
+      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-2.0 }}"
     - service: climate.set_operation_mode
       data:
         entity_id: climate.living_aircon
@@ -40,11 +37,8 @@ heat_bedroom:
 heat_bedroom_demand:
   alias: Heat Bedroom on Demand
   sequence:
-    - condition: numeric_state
-      entity_id: sensor.bedroom_temperature
-      below: 22
     - condition: template
-      value_template: "{{ (states('sensor.outdoor')|float) <= ((states('input_number.heat_temp')|float)-1) }}"
+      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-2.0 }}"
     - service: climate.set_operation_mode
       data:
         entity_id: climate.bedroom_aircon
@@ -53,6 +47,20 @@ heat_bedroom_demand:
 cool_living:
   alias: Cool Living
   sequence:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.living_aircon
+        operation_mode: cool
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_living
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_kitchen
+
+cool_living_demand:
+  alias: Cool Living on Demand
+  sequence:
+    - condition: template
+      value_template: "{{ states('sensor.outdoor_stat_mean')|float > (states('input_number.cool_temp')|float) }}"
     - service: climate.set_operation_mode
       data:
         entity_id: climate.living_aircon

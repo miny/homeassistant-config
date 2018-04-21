@@ -2,7 +2,7 @@
 ## Aircon and Floor heater
 ##
 
-- alias: Heat Bedroom Night
+- alias: Comfort Bedroom Night
   trigger:
     - platform: time
       at: '22:00:00'
@@ -25,7 +25,7 @@
     - service: script.turn_on
       entity_id: script.heat_bedroom_demand
 
-- alias: Heat Living Night
+- alias: Comfort Living Night
   trigger:
     - platform: numeric_state
       entity_id: proximity.home
@@ -39,8 +39,10 @@
   action:
     - service: script.turn_on
       entity_id: script.heat_living_demand
+    - service: script.turn_on
+      entity_id: script.cool_living_demand
 
-- alias: Heat Living Morning
+- alias: Comfort Living Morning
   trigger:
     - platform: time
       at: '07:10:00'
@@ -56,6 +58,8 @@
   action:
     - service: script.turn_on
       entity_id: script.heat_living_demand
+    - service: script.turn_on
+      entity_id: script.cool_living_demand
 
 - alias: Off Living Morning
   trigger:
