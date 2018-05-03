@@ -21,3 +21,22 @@
           push:
             sound: "se_chakushin.wav"
 
+- alias: Unknown Person
+  trigger:
+    - platform: state
+      entity_id: sensor.hue_motion_motion_sensor
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.all_devices
+        state: 'not_home'
+  action:
+    - service: notify.ios_iphonex
+      data:
+        message: "誰か家にいます"
+        data:
+          push:
+            sound: "se_mysterious3.wav"
+

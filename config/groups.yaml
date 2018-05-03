@@ -62,25 +62,33 @@ bedroom:
     - sensor.bedroom_temperature
     - sensor.bedroom_humidity
     - climate.bedroom_aircon
+    - light.hue_go
 
 house:
   name: House
   control: hidden
   entities:
     - lock.door_lock
+    - sensor.hue_motion_motion_sensor
     - sensor.house_power
+    - sensor.entrance_lux
+    - sensor.entrance_temp
     - sensor.outdoor
     - sensor.netatmo_outdoor_temperature
     - sensor.netatmo_outdoor_humidity
     - sensor.netatmo_house_pressure
     - sensor.netatmo_house_noise
     - binary_sensor.dishwasher
+
+setting:
+  name: Setting
+  control: hidden
+  entities:
     - input_number.heat_temp
     - input_number.cool_temp
-    #- sensor.weather_forecast
-    #- sensor.owm_condition
-    #- sensor.owm_forecast
-    #- sensor.owm_rain
+    - sensor.outdoor_stat_mean
+    - sensor.living_temp_stat_mean
+    - sensor.bedroom_temp_stat_mean
 
 music:
   name: Music

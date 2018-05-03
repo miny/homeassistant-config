@@ -2,6 +2,8 @@
 
 - platform: season
 
+- platform: hue
+
 - platform: mqtt
   state_topic: "sensor/watt"
   name: 'House Power'
@@ -43,6 +45,15 @@
   max_age:
     hours: 24
 
+- platform: template
+  sensors:
+    entrance_temp:
+      value_template: "{{ states.sensor.hue_motion_motion_sensor.attributes.temperature }}"
+
+- platform: template
+  sensors:
+    entrance_lux:
+      value_template: "{{ states.sensor.hue_motion_motion_sensor.attributes.lux }}"
 
 - platform: folder
   folder: /config/doorphone
