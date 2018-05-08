@@ -20,7 +20,7 @@ heat_living_demand:
     - service: switch.turn_on
       entity_id: switch.floor_heater_kitchen
     - condition: template
-      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-2.0 }}"
+      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-3.0 }}"
     - service: climate.set_operation_mode
       data:
         entity_id: climate.living_aircon
@@ -38,7 +38,7 @@ heat_bedroom_demand:
   alias: Heat Bedroom on Demand
   sequence:
     - condition: template
-      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-2.0 }}"
+      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-3.0 }}"
     - service: climate.set_operation_mode
       data:
         entity_id: climate.bedroom_aircon
