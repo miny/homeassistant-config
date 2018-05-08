@@ -175,8 +175,11 @@ sensor.living_temp_stat_mean:
 sensor.entrance_temp:
   friendly_name: 玄関 気温
   icon: mdi:thermometer
+  unit_of_measurement: ℃
 sensor.entrance_lux:
+  friendly_name: 玄関 明るさ
   icon: mdi:lightbulb-outline
+  unit_of_measurement: lux
 lock.door_lock:
   friendly_name: 鍵
 input_number.cool_temp:
