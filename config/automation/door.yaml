@@ -36,7 +36,7 @@
       entity_id: sensor.doorphone_counter
   condition:
     - condition: state
-      entity_id: device_tracker.iphonex
+      entity_id: group.my_devices
       state: 'not_home'
   action:
     - service: notify.ios_iphonex
@@ -45,5 +45,4 @@
         data:
           push:
             sound: "se_pinpon.wav"
-
 

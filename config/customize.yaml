@@ -186,3 +186,6 @@ input_number.cool_temp:
   friendly_name: 冷設定
 input_number.heat_temp:
   friendly_name: 暖設定
+device_tracker.iphone_se_2:
+  friendly_name: iPhone SE bt
+  hidden: true

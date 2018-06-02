@@ -97,3 +97,23 @@ music:
     - media_player.squeezebox_bedroom
     - media_player.squeezebox_living
 
+family_devices:
+  control: hidden
+  entities:
+    - device_tracker.iphonex
+    - device_tracker.iphonex_2
+    - device_tracker.iphone_se
+    - device_tracker.iphone_se_2
+
+my_devices:
+  control: hidden
+  entities:
+    - device_tracker.iphonex
+    - device_tracker.iphonex_2
+
+partner_devices:
+  control: hidden
+  entities:
+    - device_tracker.iphone_se
+    - device_tracker.iphone_se_2
+

@@ -16,6 +16,8 @@ homeassistant:
       hidden: true
     "automation.*":
       hidden: true
+    "device_tracker.*"
+      hidden: true
 
 recorder:
   purge_interval: 2
@@ -104,11 +106,11 @@ homekit:
       - switch.blind
 
 device_tracker:
-#  - platform: bluetooth_tracker
+  - platform: bluetooth_tracker
+
 #  - platform: icloud
 #    username: !secret icloud_username
 #    password: !secret icloud_password
-#    consider_home: 900
 
 google_assistant:
   project_id:   !secret google_project_id
