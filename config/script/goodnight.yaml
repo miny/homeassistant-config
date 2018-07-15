@@ -8,7 +8,7 @@ goodnight:
     - delay:
         minutes: 3
     - service: script.turn_on
-      entity_id: script.off_bedroom
+      entity_id: script.off_heat_bedroom
 
 check_dishwasher:
   alias: Check Dishwasher

@@ -6,7 +6,7 @@
   trigger:
     - platform: numeric_state
       entity_id: proximity.home2
-      below: 3000
+      below: 5000
   condition:
     condition: and
     conditions:
@@ -29,6 +29,8 @@
     - platform: state
       entity_id: sensor.hue_motion_motion_sensor
       to: 'on'
+      for:
+        seconds: 5
   condition:
     condition: and
     conditions:

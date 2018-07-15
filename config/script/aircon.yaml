@@ -59,8 +59,13 @@ cool_living:
 cool_living_demand:
   alias: Cool Living on Demand
   sequence:
-    - condition: template
-      value_template: "{{ states('sensor.outdoor_stat_mean')|float > (states('input_number.cool_temp')|float) }}"
+    - condition: or
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.living_temperature
+          above: 29
+        - condition: template
+          value_template: "{{ states('sensor.outdoor_stat_mean')|float > (states('input_number.cool_temp')|float) }}"
     - service: climate.set_operation_mode
       data:
         entity_id: climate.living_aircon
@@ -103,3 +108,22 @@ off_bedroom:
       data:
         entity_id: climate.bedroom_aircon
         operation_mode: off
+
+off_heat_bedroom:
+  alias: Off Bedroom
+  sequence:
+    - condition: template
+      value_template: "{{ is_state('climate.bedroom_aircon', 'heat') }}"
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.bedroom_aircon
+        operation_mode: off
+
+im_home:
+  alias: I'm Home
+  sequence:
+    - service: script.turn_on
+      entity_id: script.heat_living_demand
+    - service: script.turn_on
+      entity_id: script.cool_living_demand
+

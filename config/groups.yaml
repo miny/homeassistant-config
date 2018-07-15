@@ -87,8 +87,8 @@ setting:
     - input_number.heat_temp
     - input_number.cool_temp
     - sensor.outdoor_stat_mean
-    - sensor.living_temp_stat_mean
-    - sensor.bedroom_temp_stat_mean
+    #- sensor.living_temp_stat_mean
+    #- sensor.bedroom_temp_stat_mean
 
 music:
   name: Music
