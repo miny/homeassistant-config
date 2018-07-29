@@ -16,6 +16,8 @@
   action:
     - service: homeassistant.turn_on
       entity_id: switch.ceiling_fan
+    - service: homeassistant.turn_on
+      entity_id: fan.living_circulator
 
 - alias: Off Living Fan
   trigger:
@@ -25,4 +27,6 @@
   action:
     - service: homeassistant.turn_off
       entity_id: switch.ceiling_fan
+    - service: homeassistant.turn_off
+      entity_id: fan.living_circulator
 

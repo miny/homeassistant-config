@@ -151,6 +151,7 @@ input_number:
 
 switch: !include switch.yaml
 climate: !include climate.yaml
+fan: !include circulator.yaml
 sensor: !include sensor.yaml
 binary_sensor: !include binary_sensor.yaml
 

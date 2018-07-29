@@ -189,3 +189,7 @@ input_number.heat_temp:
 device_tracker.iphone_se_2:
   friendly_name: iPhone SE bt
   hidden: true
+sensor.jr_info:
+  hidden: true
+fan.living_circulator:
+  friendly_name: サーキュレーター

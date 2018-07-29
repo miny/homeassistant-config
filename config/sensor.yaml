@@ -93,3 +93,9 @@
       - temperature
       - humidity
 
+- platform: scrape
+  name: JR info
+  scan_interval: 1800
+  resource: http://traininfo.jreast.co.jp/train_info/kanto.aspx
+  select: "#direction_yamate td:nth-of-type(2)"
+
