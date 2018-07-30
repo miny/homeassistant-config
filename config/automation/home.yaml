@@ -16,6 +16,9 @@
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
+      - condition: time
+        after: '16:00:00'
+        before: '02:00:00'
   action:
     - service: notify.ios_iphonex
       data:

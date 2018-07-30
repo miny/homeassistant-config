@@ -83,6 +83,22 @@ cool_bedroom:
         entity_id: climate.bedroom_aircon
         operation_mode: cool
 
+cool_bedroom_demand:
+  alias: Cool Bedroom on Demand
+  sequence:
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.bedroom_temperature
+          above: 29
+        - condition: time
+          after: '00:00:00'
+          before: '02:00:00'
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.bedroom_aircon
+        operation_mode: cool
+
 off_living:
   alias: Off Living
   sequence:

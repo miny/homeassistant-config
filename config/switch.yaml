@@ -57,8 +57,9 @@
         entity_id: script.off_bedroom
 
 - platform: broadlink
-  host: 192.168.0.39
-  mac: '78:0f:77:00:01:33'
+  host: 192.168.0.53
+  mac: !secret broadlink_mac
+
   timeout: 20
   switches:
     ceiling_fan:

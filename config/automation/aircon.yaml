@@ -8,6 +8,10 @@
       at: '22:00:00'
     - platform: time
       at: '23:30:00'
+    - platform: time
+      at: '00:30:00'
+    - platform: time
+      at: '01:00:00'
     - platform: state
       entity_id: group.family_devices
       from: 'not_home'
@@ -24,6 +28,8 @@
   action:
     - service: script.turn_on
       entity_id: script.heat_bedroom_demand
+    - service: script.turn_on
+      entity_id: script.cool_bedroom_demand
 
 - alias: Comfort Living Night
   trigger:
