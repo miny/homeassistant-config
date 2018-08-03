@@ -16,8 +16,6 @@
   action:
     - service: homeassistant.turn_on
       entity_id: switch.ceiling_fan
-    - service: homeassistant.turn_on
-      entity_id: fan.living_circulator
 
 - alias: Off Living Fan
   trigger:
@@ -28,5 +26,28 @@
     - service: homeassistant.turn_off
       entity_id: switch.ceiling_fan
     - service: homeassistant.turn_off
+      entity_id: fan.living_circulator
+
+- alias: On Living Circulator
+  trigger:
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'heat'
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'cool'
+    - platform: state
+      entity_id: climate.living_aircon
+      to: 'auto'
+    - platform: time
+      at: '12:00:00'
+  condition:
+    - condition: template
+      value_template: "{{states('climate.living_aircon') != 'off'}}"
+    - condition: time
+      after: '12:00:00'
+      before: '02:00:00'
+  action:
+    - service: homeassistant.turn_on
       entity_id: fan.living_circulator
 

@@ -57,7 +57,7 @@
         entity_id: script.off_bedroom
 
 - platform: broadlink
-  host: 192.168.0.53
+  host: 192.168.0.61
   mac: !secret broadlink_mac
 
   timeout: 20

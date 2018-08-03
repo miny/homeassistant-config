@@ -3,7 +3,7 @@
 - platform: season
 
 - platform: hue
-  ip_address: 192.168.0.55
+  ip_address: 192.168.0.62
   token: !secret hue_token
 
 - platform: mqtt

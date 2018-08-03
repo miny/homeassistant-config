@@ -159,13 +159,13 @@ sensor.hue_dimmer_switch:
 sensor.hue_tap_switch:
   hidden: true
 light.bedroom:
-  hidden: true
+  friendly_name: ランプ
 light.entrance:
   hidden: true
 sensor.hue_motion_motion_sensor:
   friendly_name: 玄関動き
 light.hue_go:
-  friendly_name: 寝室 ランプ
+  hidden: true
 sensor.bedroom_temp_stat_mean:
   friendly_name: 寝室 平均気温
 sensor.outdoor_stat_mean:
