@@ -24,3 +24,28 @@
             "明日は仕事の外出予定があります。"
           {% endif %}
 
+- alias: Train Info
+  trigger:
+    - platform: time
+      at: '07:40:00'
+    - platform: time
+      at: '07:45:00'
+    - platform: time
+      at: '07:50:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: >
+          {{ not is_state('sensor.jr_info', '山手線') }}
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+  action:
+    - service: tts.google_say
+      entity_id: media_player.google_living
+      data_template:
+        message: >
+          {{ states('sensor.jr_info') }}
+          {{ states('sensor.jr_info') }}
+
