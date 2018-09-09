@@ -27,9 +27,7 @@
         before: '02:00:00'
   action:
     - service: script.turn_on
-      entity_id: script.heat_bedroom_demand
-    - service: script.turn_on
-      entity_id: script.cool_bedroom_demand
+      entity_id: script.comfort_bedroom
 
 - alias: Comfort Living Night
   trigger:
@@ -44,9 +42,7 @@
         before: '02:00:00'
   action:
     - service: script.turn_on
-      entity_id: script.heat_living_demand
-    - service: script.turn_on
-      entity_id: script.cool_living_demand
+      entity_id: script.comfort_living
 
 - alias: Comfort Living Morning
   trigger:
@@ -63,9 +59,7 @@
         state: 'on'
   action:
     - service: script.turn_on
-      entity_id: script.heat_living_demand
-    - service: script.turn_on
-      entity_id: script.cool_living_demand
+      entity_id: script.comfort_living
 
 - alias: Off Living Morning
   trigger:

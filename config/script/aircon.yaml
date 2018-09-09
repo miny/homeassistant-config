@@ -99,6 +99,22 @@ cool_bedroom_demand:
         entity_id: climate.bedroom_aircon
         operation_mode: cool
 
+comfort_living:
+  alias: Comfort Living on Demand
+  sequence:
+    - service: script.turn_on
+      entity_id: script.heat_living_demand
+    - service: script.turn_on
+      entity_id: script.cool_living_demand
+
+comfort_bedroom:
+  alias: Comfort Bedroom on Demand
+  sequence:
+    - service: script.turn_on
+      entity_id: script.heat_bedroom_demand
+    - service: script.turn_on
+      entity_id: script.cool_bedroom_demand
+
 off_living:
   alias: Off Living
   sequence:
@@ -126,7 +142,7 @@ off_bedroom:
         operation_mode: off
 
 off_heat_bedroom:
-  alias: Off Bedroom
+  alias: Off Heat Bedroom
   sequence:
     - condition: template
       value_template: "{{ is_state('climate.bedroom_aircon', 'heat') }}"
@@ -139,7 +155,5 @@ im_home:
   alias: I'm Home
   sequence:
     - service: script.turn_on
-      entity_id: script.heat_living_demand
-    - service: script.turn_on
-      entity_id: script.cool_living_demand
+      entity_id: script.comfort_living
 
