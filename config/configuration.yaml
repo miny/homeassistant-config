@@ -177,7 +177,6 @@ camera:
 tts:
   - platform: google
     language: 'ja'
-    time_memory: 100
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/

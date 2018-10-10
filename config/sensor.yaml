@@ -97,8 +97,8 @@
 
 - platform: scrape
   name: JR info
-  scan_interval: 1800
+  scan_interval: 900
   resource: http://traininfo.jreast.co.jp/train_info/kanto.aspx
   select: "#direction_yamate tbody"
-  value_template: '{{ (value.strip()) }}'
+  value_template: '{{ (value.strip().replace("配信","").replace("更新履歴","")) }}'
 
