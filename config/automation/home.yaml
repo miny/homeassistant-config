@@ -22,7 +22,7 @@
   action:
     - service: notify.ios_iphonex
       data:
-        message: "そろそろ帰宅します"
+        message: "お知らせ"
         data:
           push:
             sound: "se_chakushin.wav"

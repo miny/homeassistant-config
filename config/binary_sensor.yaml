@@ -9,5 +9,5 @@
       delay_off:
         minutes: 10
       value_template: >-
-        {{ states.switch.washer.attributes.current_power_w|float > 5 }}
+        {{ states.switch.washer.attributes.current_power_w|float > 3 }}
 

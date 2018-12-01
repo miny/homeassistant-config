@@ -143,16 +143,16 @@ sun:
 input_number:
   heat_temp:
     name: Auto Heat Temp
-    initial: 16
+    initial: 16.0
     min: 10
     max: 20
-    step: 1
+    step: 0.5
   cool_temp:
     name: Auto Cool Temp
     initial: 24
     min: 20
     max: 30
-    step: 1
+    step: 0.5
 
 switch: !include switch.yaml
 climate: !include climate.yaml

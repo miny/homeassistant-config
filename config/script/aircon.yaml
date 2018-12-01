@@ -4,11 +4,27 @@ heat_living:
     - service: climate.set_operation_mode
       data:
         entity_id: climate.living_aircon
-        operation_mode: heat
+        operation_mode: Heat
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.living_aircon
+        temperature: 24
     - service: switch.turn_on
       entity_id: switch.floor_heater_living
     - service: switch.turn_on
       entity_id: switch.floor_heater_kitchen
+
+heat_bedroom:
+  alias: Heat Bedroom
+  sequence:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.bedroom_aircon
+        operation_mode: Heat
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.bedroom_aircon
+        temperature: 24
 
 heat_living_demand:
   alias: Heat Living on Demand
@@ -20,29 +36,17 @@ heat_living_demand:
     - service: switch.turn_on
       entity_id: switch.floor_heater_kitchen
     - condition: template
-      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-3.0 }}"
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.living_aircon
-        operation_mode: heat
-
-heat_bedroom:
-  alias: Heat Bedroom
-  sequence:
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.bedroom_aircon
-        operation_mode: heat
+      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-3.5 }}"
+    - service: script.turn_on
+      entity_id: script.heat_living
 
 heat_bedroom_demand:
   alias: Heat Bedroom on Demand
   sequence:
     - condition: template
-      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-3.0 }}"
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.bedroom_aircon
-        operation_mode: heat
+      value_template: "{{ states('sensor.outdoor_stat_mean')|float < (states('input_number.heat_temp')|float)-2.5 }}"
+    - service: script.turn_on
+      entity_id: script.heat_bedroom
 
 cool_living:
   alias: Cool Living
@@ -50,26 +54,11 @@ cool_living:
     - service: climate.set_operation_mode
       data:
         entity_id: climate.living_aircon
-        operation_mode: cool
-    - service: switch.turn_off
-      entity_id: switch.floor_heater_living
-    - service: switch.turn_off
-      entity_id: switch.floor_heater_kitchen
-
-cool_living_demand:
-  alias: Cool Living on Demand
-  sequence:
-    - condition: or
-      conditions:
-        - condition: numeric_state
-          entity_id: sensor.living_temperature
-          above: 29
-        - condition: template
-          value_template: "{{ states('sensor.outdoor_stat_mean')|float > (states('input_number.cool_temp')|float) }}"
-    - service: climate.set_operation_mode
+        operation_mode: Cool
+    - service: climate.set_temperature
       data:
         entity_id: climate.living_aircon
-        operation_mode: cool
+        temperature: 28
     - service: switch.turn_off
       entity_id: switch.floor_heater_living
     - service: switch.turn_off
@@ -81,7 +70,24 @@ cool_bedroom:
     - service: climate.set_operation_mode
       data:
         entity_id: climate.bedroom_aircon
-        operation_mode: cool
+        operation_mode: Cool
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.bedroom_aircon
+        temperature: 30
+
+cool_living_demand:
+  alias: Cool Living on Demand
+  sequence:
+    - condition: or
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.living_temperature
+          above: 29
+        - condition: template
+          value_template: "{{ states('sensor.outdoor_stat_mean')|float > (states('input_number.cool_temp')|float) }}"
+    - service: script.turn_on
+      entity_id: script.cool_living
 
 cool_bedroom_demand:
   alias: Cool Bedroom on Demand
@@ -94,10 +100,8 @@ cool_bedroom_demand:
         - condition: time
           after: '00:00:00'
           before: '02:00:00'
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.bedroom_aircon
-        operation_mode: cool
+    - service: script.turn_on
+      entity_id: script.cool_bedroom
 
 comfort_living:
   alias: Comfort Living on Demand
