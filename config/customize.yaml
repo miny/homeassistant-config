@@ -193,3 +193,11 @@ sensor.jr_info:
   hidden: true
 fan.living_circulator:
   friendly_name: サーキュレーター
+sensor.inside_temperature__inside_temperature_2:
+  hidden: true
+sensor.inside_temperature__inside_temperature:
+  hidden: true
+sensor.outside_temperature__outside_temperature_2:
+  hidden: true
+sensor.outside_temperature__outside_temperature:
+  hidden: true
