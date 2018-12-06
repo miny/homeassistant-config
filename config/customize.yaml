@@ -1,12 +1,14 @@
 sensor.netatmo_house_wifi:
   hidden: true
 sensor.outdoor:
+  device_class: temperature
   friendly_name: 屋外気温 (北)
   icon: mdi:thermometer
-  unit_of_measurement: ℃
+  unit_of_measurement: °C
 sensor.netatmo_house_temperature:
   friendly_name: コーナー 気温
 sensor.netatmo_house_pressure:
+  device_class: pressure
   friendly_name: 気圧
 sensor.netatmo_house_noise:
   friendly_name: 騒音
@@ -30,19 +32,21 @@ sensor.weather_symbol:
 fan.living_ceiling_fan:
   friendly_name: リビング シーリングファン
 sensor.bedroom_humidity:
+  device_class: humidity
   friendly_name: 寝室 湿度
   icon: mdi:water
 sensor.living_humidity:
+  device_class: humidity
   friendly_name: リビング 湿度
   icon: mdi:water
 sensor.living_temperature:
+  device_class: temperature
   friendly_name: リビング 気温
   icon: mdi:thermometer
-  unit_of_measurement: ℃
 sensor.bedroom_temperature:
+  device_class: temperature
   friendly_name: 寝室 気温
   icon: mdi:thermometer
-  unit_of_measurement: ℃
 device_tracker.iphonex:
   hidden: true
 proximity.home:
@@ -173,19 +177,17 @@ sensor.outdoor_stat_mean:
 sensor.living_temp_stat_mean:
   friendly_name: リビング 平均気温
 sensor.entrance_temp:
+  device_class: temperature
   friendly_name: 玄関 気温
   icon: mdi:thermometer
-  unit_of_measurement: ℃
+  unit_of_measurement: °C
 sensor.entrance_lux:
+  device_class: illuminance
   friendly_name: 玄関 明るさ
   icon: mdi:lightbulb-outline
   unit_of_measurement: lux
 lock.door_lock:
   friendly_name: 鍵
-input_number.cool_temp:
-  friendly_name: 冷設定
-input_number.heat_temp:
-  friendly_name: 暖設定
 device_tracker.iphone_se_2:
   friendly_name: iPhone SE bt
   hidden: true

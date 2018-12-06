@@ -31,9 +31,9 @@
 - platform: statistics
   name: outdoor_stat
   entity_id: sensor.outdoor
-  sampling_size: 1200
+  sampling_size: 1500
   max_age:
-    hours: 72
+    hours: 24
 #- platform: statistics
 #  name: living_temp_stat
 #  entity_id: sensor.living_temperature

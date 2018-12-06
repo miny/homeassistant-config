@@ -25,7 +25,7 @@
         message: "お知らせ"
         data:
           push:
-            sound: "se_chakushin.wav"
+            sound: "se_suzunooto.wav"
 
 - alias: Unknown Person
   trigger:
