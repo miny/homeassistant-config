@@ -203,3 +203,5 @@ sensor.outside_temperature__outside_temperature_2:
   hidden: true
 sensor.outside_temperature__outside_temperature:
   hidden: true
+climate._2:
+  hidden: true

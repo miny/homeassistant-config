@@ -1,0 +1,36 @@
+##
+## switch for Aircon
+##
+
+- alias: Comfort Bedroom Switch
+  trigger:
+    - platform: state
+      entity_id: sensor.hue_tap_switch
+      to: '2_click'
+    - platform: state
+      entity_id: sensor.hue_tap_switch
+      to: '3_click'
+    - platform: state
+      entity_id: sensor.hue_tap_switch
+      to: '4_click'
+  condition:
+    - condition: state
+      entity_id: group.family_devices
+      state: 'home'
+  action:
+    - service: script.turn_on
+      entity_id: script.comfort_bedroom
+
+- alias: Off Bedroom Switch
+  trigger:
+    - platform: state
+      entity_id: sensor.hue_tap_switch
+      to: '1_click'
+  condition:
+    - condition: state
+      entity_id: group.family_devices
+      state: 'home'
+  action:
+    - service: script.turn_on
+      entity_id: script.off_bedroom
+

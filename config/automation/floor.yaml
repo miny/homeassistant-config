@@ -1,0 +1,32 @@
+##
+## Aircon and Floor heater
+##
+
+- alias: Floor Heat Off Workday
+  trigger:
+    - platform: time
+      at: '02:00:00'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_living
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_kitchen
+
+- alias: Floor Heat Off Holiday
+  trigger:
+    - platform: time
+      at: '03:30:00'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_living
+    - service: switch.turn_off
+      entity_id: switch.floor_heater_kitchen
+
