@@ -41,6 +41,15 @@ useful_winter:
     - switch.heat_living
     - switch.heat_bedroom
 
+entrance:
+  name: Entrance
+  control: hidden
+  entities:
+    - lock.door_lock
+    - sensor.hue_motion_motion_sensor
+    - sensor.entrance_lux
+    - sensor.entrance_temp
+
 living:
   name: Living Room
   control: hidden
@@ -70,11 +79,8 @@ house:
   name: House
   control: hidden
   entities:
-    - lock.door_lock
-    - sensor.hue_motion_motion_sensor
     - sensor.house_power
-    - sensor.entrance_lux
-    - sensor.entrance_temp
+    - sensor.dishwasher_power
     - sensor.outdoor
     - sensor.netatmo_outdoor_temperature
     - sensor.netatmo_outdoor_humidity

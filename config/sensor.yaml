@@ -52,10 +52,16 @@
     entrance_temp:
       value_template: "{{ states.sensor.hue_motion_motion_sensor.attributes.temperature }}"
 
-- platform: template
-  sensors:
     entrance_lux:
       value_template: "{{ states.sensor.hue_motion_motion_sensor.attributes.lx }}"
+
+    dishwasher_power:
+      value_template: >-
+        {% if is_state("switch.washer", "on") -%}
+          {{ states.switch.washer.attributes.current_power_w }}
+        {%- else -%}
+          0
+        {%- endif %}
 
 - platform: folder
   folder: /config/doorphone
