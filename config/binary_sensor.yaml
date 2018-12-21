@@ -9,7 +9,7 @@
       delay_off:
         minutes: 10
       value_template: >-
-        {{ sensor.dishwasher_power|float > 3 }}
+        {{ states.sensor.dishwasher_power.state|float > 3 }}
 
 - platform: threshold
   name: cond_hot
