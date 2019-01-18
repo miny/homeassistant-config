@@ -207,6 +207,7 @@ climate._2:
   hidden: true
 sensor.dishwasher_power:
   friendly_name: 食洗機電力
+  icon: mdi:lightbulb-on
   unit_of_measurement: W
 group.entrance:
   friendly_name: 玄関

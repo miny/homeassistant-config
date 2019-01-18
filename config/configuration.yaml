@@ -51,7 +51,7 @@ zone:
   name: Home
   latitude:  !secret home_latitude
   longitude: !secret home_longitude
-  radius: 450
+  radius: 300
   icon: mdi:home
 
 proximity:
