@@ -45,7 +45,7 @@
 - alias: Comfort Living Morning
   trigger:
     - platform: time
-      at: '07:10:00'
+      at: '07:00:00'
   condition:
     condition: and
     conditions:
@@ -57,7 +57,7 @@
         state: 'on'
   action:
     - service: script.turn_on
-      entity_id: script.comfort_living
+      entity_id: script.comfort_living_slow
 
 - alias: Off Living Morning
   trigger:

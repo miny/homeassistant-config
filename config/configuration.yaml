@@ -21,7 +21,7 @@ homeassistant:
 
 recorder:
   purge_interval: 1
-  purge_keep_days: 6
+  purge_keep_days: 7
   include:
     entities:
       - binary_sensor.dishwasher
@@ -106,6 +106,7 @@ homekit:
       - sensor.netatmo_outdoor_humidity
     exclude_domains:
       - script
+      - group
     exclude_entities:
       - switch.washer
       - switch.blind
@@ -140,7 +141,7 @@ config:
 discovery:
 history:
 logbook:
-#map:
+system_health:
 sun:
 
 switch: !include switch.yaml

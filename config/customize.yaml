@@ -195,19 +195,31 @@ sensor.jr_info:
   hidden: true
 fan.living_circulator:
   friendly_name: サーキュレーター
-sensor.inside_temperature__inside_temperature_2:
-  hidden: true
-sensor.inside_temperature__inside_temperature:
-  hidden: true
-sensor.outside_temperature__outside_temperature_2:
-  hidden: true
-sensor.outside_temperature__outside_temperature:
-  hidden: true
-climate._2:
-  hidden: true
 sensor.dishwasher_power:
   friendly_name: 食洗機電力
   icon: mdi:lightbulb-on
   unit_of_measurement: W
 group.entrance:
   friendly_name: 玄関
+group.family_devices:
+  hidden: true
+group.my_devices:
+  hidden: true
+group.partner_devices:
+  hidden: true
+climate.2:
+  hidden: true
+sensor.inside_temperature_inside_temperature:
+  hidden: true
+sensor.inside_temperature_inside_temperature_2:
+  hidden: true
+sensor.outside_temperature_outside_temperature:
+  hidden: true
+sensor.outside_temperature_outside_temperature_2:
+  hidden: true
+sensor.ipad_battery_level:
+  hidden: true
+sensor.ipad_battery_state:
+  hidden: true
+sensor.netatmo_outdoor_battery_percent:
+  hidden: true

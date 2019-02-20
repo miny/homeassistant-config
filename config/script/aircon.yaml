@@ -29,6 +29,17 @@ heat_bedroom:
 heat_living_demand:
   alias: Heat Living on Demand
   sequence:
+    - service: script.turn_on
+      entity_id: script.heat_living_floor_demand
+    - condition: state
+      entity_id: binary_sensor.cond_very_cold
+      state: 'on'
+    - service: script.turn_on
+      entity_id: script.heat_living
+
+heat_living_floor_demand:
+  alias: Heat Living Floor on Demand
+  sequence:
     - condition: state
       entity_id: binary_sensor.cond_cold
       state: 'on'
@@ -36,11 +47,6 @@ heat_living_demand:
       entity_id: switch.floor_heater_living
     - service: switch.turn_on
       entity_id: switch.floor_heater_kitchen
-    - condition: state
-      entity_id: binary_sensor.cond_very_cold
-      state: 'on'
-    - service: script.turn_on
-      entity_id: script.heat_living
 
 heat_bedroom_demand:
   alias: Heat Bedroom on Demand
@@ -110,6 +116,18 @@ cool_bedroom_demand:
 comfort_living:
   alias: Comfort Living on Demand
   sequence:
+    - service: script.turn_on
+      entity_id: script.heat_living_demand
+    - service: script.turn_on
+      entity_id: script.cool_living_demand
+
+comfort_living_slow:
+  alias: Comfort Living Slow on Demand
+  sequence:
+    - service: script.turn_on
+      entity_id: script.heat_living_floor_demand
+    - delay:
+        minutes: 10
     - service: script.turn_on
       entity_id: script.heat_living_demand
     - service: script.turn_on
