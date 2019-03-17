@@ -30,7 +30,7 @@
 - alias: Unknown Person
   trigger:
     - platform: state
-      entity_id: sensor.hue_motion_motion_sensor
+      entity_id: binary_sensor.hue_motion_motion_sensor
       to: 'on'
       for:
         seconds: 5

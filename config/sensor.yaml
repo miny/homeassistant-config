@@ -3,8 +3,6 @@
 - platform: season
 
 - platform: hue
-  ip_address: 192.168.0.62
-  token: !secret hue_token
 
 - platform: mqtt
   state_topic: "sensor/watt"
@@ -50,10 +48,10 @@
 - platform: template
   sensors:
     entrance_temp:
-      value_template: "{{ states.sensor.hue_motion_motion_sensor.attributes.temperature }}"
+      value_template: "{{ states.binary_sensor.hue_motion_motion_sensor.attributes.temperature }}"
 
     entrance_lux:
-      value_template: "{{ states.sensor.hue_motion_motion_sensor.attributes.lx }}"
+      value_template: "{{ states.binary_sensor.hue_motion_motion_sensor.attributes.lx }}"
 
     dishwasher_power:
       value_template: >-

@@ -166,7 +166,7 @@ light.bedroom:
   friendly_name: ランプ
 light.entrance:
   hidden: true
-sensor.hue_motion_motion_sensor:
+binary_sensor.hue_motion_motion_sensor:
   friendly_name: 玄関動き
 light.hue_go:
   hidden: true
