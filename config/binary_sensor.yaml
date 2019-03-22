@@ -3,7 +3,7 @@
 - platform: workday
   country: JP
 
-- platform: hue
+- platform: hue_custom
 
 - platform: template
   sensors:
@@ -28,6 +28,6 @@
 - platform: threshold
   name: cond_very_cold
   entity_id: sensor.outdoor_stat_mean
-  lower: 13
+  lower: 12
   hysteresis: 1.0
 

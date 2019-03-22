@@ -73,7 +73,6 @@ bedroom:
     - sensor.bedroom_humidity
     - climate.bedroom_aircon
     - light.bedroom
-    #- light.hue_go
 
 house:
   name: House
@@ -107,20 +106,6 @@ music:
 family_devices:
   control: hidden
   entities:
-    - device_tracker.iphonex
-    - device_tracker.iphonex_2
-    - device_tracker.iphone_se
-    - device_tracker.iphone_se_2
-
-my_devices:
-  control: hidden
-  entities:
-    - device_tracker.iphonex
-    - device_tracker.iphonex_2
-
-partner_devices:
-  control: hidden
-  entities:
-    - device_tracker.iphone_se
-    - device_tracker.iphone_se_2
+    - person.me
+    - person.partner
 

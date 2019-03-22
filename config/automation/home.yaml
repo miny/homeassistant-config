@@ -11,7 +11,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: group.my_devices
+        entity_id: person.me
         state: 'home'
       - condition: state
         entity_id: binary_sensor.workday_sensor

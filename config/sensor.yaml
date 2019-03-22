@@ -2,7 +2,7 @@
 
 - platform: season
 
-- platform: hue
+- platform: hue_custom
 
 - platform: mqtt
   state_topic: "sensor/watt"

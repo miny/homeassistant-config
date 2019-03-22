@@ -2,7 +2,7 @@ homeassistant:
   name: Home
   latitude:  !secret home_latitude
   longitude: !secret home_longitude
-  elevation: 18
+  elevation: 23.4
   unit_system: metric
   time_zone: Asia/Tokyo
 
@@ -17,6 +17,8 @@ homeassistant:
     "automation.*":
       hidden: true
     "device_tracker.*":
+      hidden: true
+    "person.*":
       hidden: true
 
 recorder:
@@ -58,18 +60,18 @@ zone:
 proximity:
   home:
     devices:
-      - device_tracker.iphonex
+      - person.me
     tolerance: 100
     unit_of_measurement: m
   home2:
     devices:
-      - device_tracker.iphone_se
+      - person.partner
     tolerance: 100
     unit_of_measurement: m
 
 http:
-  api_password: !secret http_password
   base_url:     !secret http_base_url
+#  api_password: !secret http_password
 
 mqtt:
   broker: !secret mqtt_broker
@@ -113,14 +115,12 @@ homekit:
       - switch.blind
 
 device_tracker:
-#  - platform: bluetooth_tracker
-
   - platform: snmp
     host: 192.168.0.1
     community: !secret snmp_community
     baseoid: 1.3.6.1.2.1.4.22.1.2
 
-  - platform: hue
+  - platform: hue_custom
 
 #  - platform: icloud
 #    username: !secret icloud_username
@@ -128,14 +128,15 @@ device_tracker:
 
 google_assistant:
   project_id:   !secret google_project_id
-  #client_id:    !secret google_client_id
-  #access_token: !secret google_access_token
-  #api_key:      !secret google_api_key
   exposed_domains:
     - climate
     - media_player
     - script
 #    - scene
+
+googlehome:
+  devices:
+    - host: 192.168.0.60
 
 alexa:
 
@@ -147,6 +148,7 @@ logbook:
 system_health:
 sun:
 
+person: !include person.yaml
 switch: !include switch.yaml
 climate: !include climate.yaml
 fan: !include circulator.yaml

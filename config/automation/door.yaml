@@ -41,7 +41,7 @@
       entity_id: sensor.doorphone_counter
   condition:
     - condition: state
-      entity_id: group.my_devices
+      entity_id: person.me
       state: 'not_home'
   action:
     - service: notify.ios_iphonex
