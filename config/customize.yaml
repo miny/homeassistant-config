@@ -223,3 +223,5 @@ sensor.ipad_battery_state:
   hidden: true
 sensor.netatmo_outdoor_battery_percent:
   hidden: true
+input_boolean.sleeping:
+  friendly_name: 就寝中

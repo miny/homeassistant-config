@@ -73,6 +73,7 @@ bedroom:
     - sensor.bedroom_humidity
     - climate.bedroom_aircon
     - light.bedroom
+    - input_boolean.sleeping
 
 house:
   name: House
