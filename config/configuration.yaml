@@ -2,7 +2,7 @@ homeassistant:
   name: Home
   latitude:  !secret home_latitude
   longitude: !secret home_longitude
-  elevation: 23.4
+  elevation: !secret home_elevation
   unit_system: metric
   time_zone: Asia/Tokyo
 

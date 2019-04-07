@@ -17,17 +17,17 @@
   name: cond_hot
   entity_id: sensor.outdoor_stat_mean
   upper: 24
-  hysteresis: 1.0
+  hysteresis: 0.9
 
 - platform: threshold
   name: cond_cold
   entity_id: sensor.outdoor_stat_mean
-  lower: 16
-  hysteresis: 1.0
+  lower: 15.5
+  hysteresis: 0.9
 
 - platform: threshold
   name: cond_very_cold
   entity_id: sensor.outdoor_stat_mean
-  lower: 12
-  hysteresis: 1.0
+  lower: 11.5
+  hysteresis: 0.9
 
