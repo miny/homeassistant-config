@@ -11,5 +11,5 @@ docker run --detach \
     --device /dev/vhci:/dev/vhci \
     --privileged \
     --net=host \
-    homeassistant/home-assistant:0.90.1
+    homeassistant/home-assistant:0.92.1
 

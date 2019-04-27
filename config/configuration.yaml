@@ -135,9 +135,9 @@ google_assistant:
     - script
 #    - scene
 
-googlehome:
-  devices:
-    - host: 192.168.0.60
+#googlehome:
+#  devices:
+#    - host: 192.168.0.60
 
 alexa:
 
@@ -177,8 +177,9 @@ camera:
     file_path: /config/doorphone/latest.jpg
 
 tts:
-  - platform: google
+  - platform: google_translate
     language: 'ja'
+    service_name: google_say
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/

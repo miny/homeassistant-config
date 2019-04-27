@@ -225,3 +225,9 @@ sensor.netatmo_outdoor_battery_percent:
   hidden: true
 input_boolean.sleeping:
   friendly_name: 就寝中
+binary_sensor.hue_motion_sensor_motion:
+  friendly_name: 玄関 動き
+sensor.hue_motion_sensor_light_level:
+  hidden: true
+sensor.hue_motion_sensor_temperature:
+  hidden: true

@@ -46,7 +46,7 @@ entrance:
   control: hidden
   entities:
     - lock.door_lock
-    - binary_sensor.hue_motion_motion_sensor
+    - binary_sensor.hue_motion_sensor_motion
     - sensor.entrance_lux
     - sensor.entrance_temp
 

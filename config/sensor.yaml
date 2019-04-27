@@ -48,10 +48,10 @@
 - platform: template
   sensors:
     entrance_temp:
-      value_template: "{{ states.binary_sensor.hue_motion_motion_sensor.attributes.temperature }}"
+      value_template: "{{ states.sensor.hue_motion_sensor_temperature.state }}"
 
     entrance_lux:
-      value_template: "{{ states.binary_sensor.hue_motion_motion_sensor.attributes.lx }}"
+      value_template: "{{ states.sensor.hue_motion_sensor_light_level.state|round }}"
 
     dishwasher_power:
       value_template: >-
