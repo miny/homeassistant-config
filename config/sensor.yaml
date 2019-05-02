@@ -2,8 +2,6 @@
 
 - platform: season
 
-- platform: hue_custom
-
 - platform: mqtt
   state_topic: "sensor/watt"
   name: 'House Power'
@@ -51,7 +49,7 @@
       value_template: "{{ states.sensor.hue_motion_sensor_temperature.state }}"
 
     entrance_lux:
-      value_template: "{{ states.sensor.hue_motion_sensor_light_level.state|round }}"
+      value_template: "{{ states.sensor.hue_motion_sensor_light_level.state|round(1) }}"
 
     dishwasher_power:
       value_template: >-

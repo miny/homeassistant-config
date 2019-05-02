@@ -3,8 +3,6 @@
 - platform: workday
   country: JP
 
-- platform: hue_custom
-
 - platform: template
   sensors:
     dishwasher:
