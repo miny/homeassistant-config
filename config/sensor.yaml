@@ -7,26 +7,29 @@
   name: 'House Power'
   unit_of_measurement: 'W'
 - platform: mqtt
-  state_topic: "sensor/outdoor/temperature"
-  name: 'Outdoor'
+  state_topic: "sensor/aircon/livingroom/outtemp"
+  name: 'Outdoor0'
 - platform: mqtt
-  state_topic: "sensor/living/temperature"
+  state_topic: "sensor/aircon/bedroom/outtemp"
+  name: 'Outdoor1'
+- platform: mqtt
+  state_topic: "sensor/aircon/livingroom/temperature"
   name: 'Living Temperature'
 - platform: mqtt
-  state_topic: "sensor/living/humidity"
+  state_topic: "sensor/aircon/livingroom/humidity"
   name: 'Living Humidity'
   unit_of_measurement: '%'
 - platform: mqtt
-  state_topic: "sensor/bedroom/temperature"
+  state_topic: "sensor/aircon/bedroom/temperature"
   name: 'Bedroom Temperature'
 - platform: mqtt
-  state_topic: "sensor/bedroom/humidity"
+  state_topic: "sensor/aircon/bedroom/humidity"
   name: 'Bedroom Humidity'
   unit_of_measurement: '%'
 
 - platform: statistics
   name: outdoor_stat
-  entity_id: sensor.outdoor
+  entity_id: sensor.outdoor_temperature
   sampling_size: 1500
   max_age:
     hours: 24
@@ -45,6 +48,9 @@
 
 - platform: template
   sensors:
+    outdoor_temperature:
+      value_template: "{{ ((states.sensor.outdoor0.state|float)+(states.sensor.outdoor1.state|float))/2.0 }}"
+
     entrance_temp:
       value_template: "{{ states.sensor.hue_motion_sensor_temperature.state }}"
 

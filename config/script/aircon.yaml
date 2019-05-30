@@ -92,7 +92,7 @@ cool_living_demand:
       conditions:
         - condition: numeric_state
           entity_id: sensor.living_temperature
-          above: 29
+          above: 30
         - condition: state
           entity_id: binary_sensor.cond_hot
           state: 'on'

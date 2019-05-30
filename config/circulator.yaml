@@ -2,12 +2,12 @@
 
 - platform: mqtt
   name: "Living Circulator"
-  state_topic:         "circulator/living/power"
-  command_topic:       "circulator/living/power/set"
-  speed_state_topic:   "circulator/living/speed"
-  speed_command_topic: "circulator/living/speed/set"
-  payload_on:  "ON"
-  payload_off: "OFF"
+  state_topic:         "circulator/livingroom/power"
+  command_topic:       "circulator/livingroom/power/set"
+  speed_state_topic:   "circulator/livingroom/fanmode"
+  speed_command_topic: "circulator/livingroom/fanmode/set"
+  payload_on:  "on"
+  payload_off: "off"
   payload_low_speed:    "low"
   payload_medium_speed: "medium"
   payload_high_speed:   "high"

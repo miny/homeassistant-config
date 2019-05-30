@@ -1,6 +1,6 @@
 sensor.netatmo_house_wifi:
   hidden: true
-sensor.outdoor:
+sensor.outdoor_temperature:
   device_class: temperature
   friendly_name: 屋外気温 (北)
   icon: mdi:thermometer
@@ -171,11 +171,17 @@ binary_sensor.hue_motion_motion_sensor:
 light.hue_go:
   hidden: true
 sensor.bedroom_temp_stat_mean:
+  device_class: temperature
   friendly_name: 寝室 平均気温
+  unit_of_measurement: °C
 sensor.outdoor_stat_mean:
+  device_class: temperature
   friendly_name: 屋外 平均気温
+  unit_of_measurement: °C
 sensor.living_temp_stat_mean:
+  device_class: temperature
   friendly_name: リビング 平均気温
+  unit_of_measurement: °C
 sensor.entrance_temp:
   device_class: temperature
   friendly_name: 玄関 気温
@@ -230,4 +236,10 @@ binary_sensor.hue_motion_sensor_motion:
 sensor.hue_motion_sensor_light_level:
   hidden: true
 sensor.hue_motion_sensor_temperature:
+  hidden: true
+sensor.outdoor0:
+  device_class: temperature
+  hidden: true
+sensor.outdoor1:
+  device_class: temperature
   hidden: true

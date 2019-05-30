@@ -81,7 +81,7 @@ house:
   entities:
     - sensor.house_power
     - sensor.dishwasher_power
-    - sensor.outdoor
+    - sensor.outdoor_temperature
     - sensor.netatmo_outdoor_temperature
     - sensor.netatmo_outdoor_humidity
     - sensor.netatmo_house_pressure

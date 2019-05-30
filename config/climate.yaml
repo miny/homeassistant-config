@@ -11,15 +11,15 @@
     - auto
   fan_modes:
     - auto
-  current_temperature_topic: "sensor/living/temperature"
-  power_command_topic:       "aircon/living/power/set"
-  power_state_topic:         "aircon/living/power"
-  mode_command_topic:        "aircon/living/mode/set"
-  mode_state_topic:          "aircon/living/mode"
-  temperature_command_topic: "aircon/living/temperature/set"
-  temperature_state_topic:   "aircon/living/temperature"
-  payload_on: "ON"
-  payload_off: "OFF"
+  current_temperature_topic: "sensor/aircon/livingroom/temperature"
+  power_command_topic:       "aircon/livingroom/power/set"
+  power_state_topic:         "aircon/livingroom/power"
+  mode_command_topic:        "aircon/livingroom/mode/set"
+  mode_state_topic:          "aircon/livingroom/mode"
+  temperature_command_topic: "aircon/livingroom/temperature/set"
+  temperature_state_topic:   "aircon/livingroom/temperature"
+  payload_on: "on"
+  payload_off: "off"
 
 - platform: mqtt
   name: "Bedroom Aircon"
@@ -32,13 +32,13 @@
     - auto
   fan_modes:
     - auto
-  current_temperature_topic: "sensor/bedroom/temperature"
+  current_temperature_topic: "sensor/aircon/bedroom/temperature"
   power_command_topic:       "aircon/bedroom/power/set"
   power_state_topic:         "aircon/bedroom/power"
   mode_command_topic:        "aircon/bedroom/mode/set"
   mode_state_topic:          "aircon/bedroom/mode"
   temperature_command_topic: "aircon/bedroom/temperature/set"
   temperature_state_topic:   "aircon/bedroom/temperature"
-  payload_on: "ON"
-  payload_off: "OFF"
+  payload_on: "on"
+  payload_off: "off"
 
