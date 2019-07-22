@@ -104,11 +104,11 @@ cool_bedroom_demand:
   sequence:
     - condition: and
       conditions:
-        - condition: numeric_state
-          entity_id: sensor.bedroom_temperature
-          above: 29
+        - condition: state
+          entity_id: binary_sensor.cond_hot
+          state: 'on'
         - condition: time
-          after: '00:00:00'
+          after: '23:00:00'
           before: '02:00:00'
     - service: script.turn_on
       entity_id: script.cool_bedroom
@@ -150,6 +150,8 @@ off_living:
       entity_id: switch.floor_heater_kitchen
     - service: homeassistant.turn_off
       entity_id: switch.ceiling_fan
+    - service: homeassistant.turn_off
+      entity_id: fan.living_circulator
     - condition: template
       value_template: "{{ not is_state('climate.living_aircon', 'off') }}"
     - service: climate.set_operation_mode
