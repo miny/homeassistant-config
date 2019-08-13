@@ -243,3 +243,11 @@ sensor.outdoor0:
 sensor.outdoor1:
   device_class: temperature
   hidden: true
+sensor.netatmo_outdoor_max_temp:
+  hidden: true
+sensor.netatmo_outdoor_min_temp:
+  hidden: true
+sensor.netatmo_house_max_temp:
+  hidden: true
+sensor.netatmo_house_min_temp:
+  hidden: true

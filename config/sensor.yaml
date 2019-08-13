@@ -93,15 +93,8 @@
 
 - platform: netatmo
   modules:
-    House:
-      - temperature
-      - humidity
-      - pressure
-      - co2
-      - noise
-    Outdoor:
-      - temperature
-      - humidity
+    - House
+    - Outdoor
 
 - platform: scrape
   name: JR info

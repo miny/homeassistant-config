@@ -2,6 +2,11 @@
 
 - platform: workday
   country: JP
+  add_holidays:
+    - '2019-08-13'
+    - '2019-08-14'
+    - '2019-08-15'
+    - '2019-08-16'
 
 - platform: template
   sensors:
