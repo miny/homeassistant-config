@@ -6,13 +6,7 @@
   trigger:
     - platform: state
       entity_id: climate.living_aircon
-      to: 'heat'
-    - platform: state
-      entity_id: climate.living_aircon
-      to: 'cool'
-    - platform: state
-      entity_id: climate.living_aircon
-      to: 'auto'
+      from: 'off'
   action:
     - service: homeassistant.turn_on
       entity_id: switch.ceiling_fan
@@ -32,13 +26,7 @@
   trigger:
     - platform: state
       entity_id: climate.living_aircon
-      to: 'heat'
-    - platform: state
-      entity_id: climate.living_aircon
-      to: 'cool'
-    - platform: state
-      entity_id: climate.living_aircon
-      to: 'auto'
+      from: 'off'
     - platform: time
       at: '12:00:00'
   condition:

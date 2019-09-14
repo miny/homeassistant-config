@@ -142,30 +142,24 @@ off_living:
       entity_id: fan.living_circulator
     - condition: template
       value_template: "{{ not is_state('climate.living_aircon', 'off') }}"
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.living_aircon
-        hvac_mode: off
+    - service: climate.turn_off
+      entity_id: climate.living_aircon
 
 off_bedroom:
   alias: Off Bedroom
   sequence:
     - condition: template
       value_template: "{{ not is_state('climate.bedroom_aircon', 'off') }}"
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.bedroom_aircon
-        hvac_mode: off
+    - service: climate.turn_off
+      entity_id: climate.bedroom_aircon
 
 off_heat_bedroom:
   alias: Off Heat Bedroom
   sequence:
     - condition: template
       value_template: "{{ is_state('climate.bedroom_aircon', 'heat') }}"
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.bedroom_aircon
-        hvac_mode: off
+    - service: climate.turn_off
+      entity_id: climate.bedroom_aircon
 
 im_home:
   alias: I'm Home
