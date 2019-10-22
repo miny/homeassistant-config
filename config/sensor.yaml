@@ -29,7 +29,7 @@
 
 - platform: statistics
   name: outdoor_stat
-  entity_id: sensor.outdoor_temperature
+  entity_id: sensor.reference
   sampling_size: 1500
   max_age:
     hours: 24
@@ -48,6 +48,13 @@
 
 - platform: template
   sensors:
+    reference:
+      value_template: >-
+        {{ ((states.sensor.outdoor0.state|float) +
+            (states.sensor.outdoor1.state|float)) / 2.0 +
+           ((states("sensor.living_humidity")|float) +
+            (states("sensor.bedroom_humidity")|float) - 80.0) / 20.0 }}
+
     outdoor_temperature:
       value_template: "{{ ((states.sensor.outdoor0.state|float)+(states.sensor.outdoor1.state|float))/2.0 }}"
 

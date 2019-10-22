@@ -1,0 +1,27 @@
+##
+## co2
+##
+
+- alias: Door unlock
+  trigger:
+    - platform: numeric_state
+      entity_id: 'sensor.netatmo_house_co2'
+      above: 1000
+      for:
+        minutes: 30
+    - platform: numeric_state
+      entity_id: 'sensor.netatmo_house_co2'
+      above: 1000
+      for:
+        minutes: 60
+    - platform: numeric_state
+      entity_id: 'sensor.netatmo_house_co2'
+      above: 1000
+      for:
+        minutes: 120
+  action:
+    - service: tts.google_say
+      entity_id: media_player.google_living
+      data_template:
+        message: "換気をしてください"
+

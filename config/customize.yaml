@@ -176,7 +176,7 @@ sensor.bedroom_temp_stat_mean:
   unit_of_measurement: °C
 sensor.outdoor_stat_mean:
   device_class: temperature
-  friendly_name: 屋外 平均気温
+  friendly_name: 基準気温
   unit_of_measurement: °C
 sensor.living_temp_stat_mean:
   device_class: temperature
@@ -250,4 +250,6 @@ sensor.netatmo_outdoor_min_temp:
 sensor.netatmo_house_max_temp:
   hidden: true
 sensor.netatmo_house_min_temp:
+  hidden: true
+sensor.reference:
   hidden: true
