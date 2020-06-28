@@ -40,6 +40,7 @@ recorder:
       - media_player
       - device_tracker
       - lock
+      - fan
   exclude:
     entities:
       - switch.blind

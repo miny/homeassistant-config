@@ -35,6 +35,6 @@
 - platform: threshold
   name: cond_very_cold
   entity_id: sensor.outdoor_stat_mean
-  lower: 11.5
+  lower: 12.0
   hysteresis: 0.5
 

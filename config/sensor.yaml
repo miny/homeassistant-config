@@ -30,21 +30,9 @@
 - platform: statistics
   name: outdoor_stat
   entity_id: sensor.reference
-  sampling_size: 1500
+  sampling_size: 1200
   max_age:
     hours: 24
-#- platform: statistics
-#  name: living_temp_stat
-#  entity_id: sensor.living_temperature
-#  sampling_size: 1500
-#  max_age:
-#    hours: 24
-#- platform: statistics
-#  name: bedroom_temp_stat
-#  entity_id: sensor.bedroom_temperature
-#  sampling_size: 1500
-#  max_age:
-#    hours: 24
 
 - platform: template
   sensors:

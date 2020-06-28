@@ -325,3 +325,7 @@ sensor.last_update_trigger_3:
   hidden: true
 sensor.ssid_3:
   hidden: true
+sensor.geocoded_location_ipad:
+  hidden: true
+sensor.sim_2:
+  hidden: true

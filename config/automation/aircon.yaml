@@ -71,6 +71,14 @@
     - service: script.turn_on
       entity_id: script.off_living
 
+- alias: Off Living Night
+  trigger:
+    - platform: time
+      at: '03:40:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.off_living
+
 - alias: Off Bedroom Morning
   trigger:
     - platform: time
@@ -79,6 +87,14 @@
     - condition: state
       entity_id: binary_sensor.workday_sensor
       state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.off_bedroom
+
+- alias: Off Bedroom Morning Holiday
+  trigger:
+    - platform: time
+      at: '13:00:00'
   action:
     - service: script.turn_on
       entity_id: script.off_bedroom
