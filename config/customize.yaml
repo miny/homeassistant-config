@@ -329,3 +329,9 @@ sensor.geocoded_location_ipad:
   hidden: true
 sensor.sim_2:
   hidden: true
+sensor.storage_2:
+  hidden: true
+sensor.storage:
+  hidden: true
+sensor.cellular_provider:
+  hidden: true
