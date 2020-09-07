@@ -335,3 +335,65 @@ sensor.storage:
   hidden: true
 sensor.cellular_provider:
   hidden: true
+sensor.storage_3:
+  hidden: true
+sensor.activity_4:
+  hidden: true
+sensor.activity_5:
+  hidden: true
+sensor.average_active_pace_3:
+  hidden: true
+sensor.bssid_4:
+  hidden: true
+sensor.bssid_5:
+  hidden: true
+sensor.battery_level_4:
+  hidden: true
+sensor.battery_level_5:
+  hidden: true
+sensor.battery_state_4:
+  hidden: true
+sensor.battery_state_5:
+  hidden: true
+sensor.connection_type_4:
+  hidden: true
+sensor.connection_type_5:
+  hidden: true
+sensor.distance_3:
+  hidden: true
+sensor.distance_4:
+  hidden: true
+sensor.floors_ascended_3:
+  hidden: true
+sensor.floors_ascended_4:
+  hidden: true
+sensor.floors_descended_3:
+  hidden: true
+sensor.floors_descended_4:
+  hidden: true
+sensor.sim_1_3:
+  hidden: true
+sensor.sim_1_4:
+  hidden: true
+sensor.sim_2_2:
+  hidden: true
+sensor.ssid_4:
+  hidden: true
+sensor.ssid_5:
+  hidden: true
+sensor.steps_3:
+  hidden: true
+sensor.steps_4:
+  hidden: true
+sensor.storage_4:
+  hidden: true
+sensor.storage_5:
+  hidden: true
+sensor.geocoded_location_4:
+  hidden: true
+sensor.last_update_trigger_4:
+  hidden: true
+sensor.last_update_trigger_5:
+  hidden: true
+sensor.average_active_pace_4:
+  hidden: true

@@ -57,7 +57,7 @@ cool_living:
     - service: climate.set_temperature
       data:
         entity_id: climate.living_aircon
-        temperature: 27
+        temperature: 26
         hvac_mode: cool
     - service: switch.turn_off
       entity_id: switch.floor_heater_living

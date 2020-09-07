@@ -2,7 +2,7 @@
 ## co2
 ##
 
-- alias: Door unlock
+- alias: CO2 warning
   trigger:
     - platform: numeric_state
       entity_id: 'sensor.netatmo_house_co2'

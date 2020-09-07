@@ -20,7 +20,7 @@
         after: '16:00:00'
         before: '02:00:00'
   action:
-    - service: notify.ios_iphonex
+    - service: notify.mobile_app_iphonex
       data:
         message: "お知らせ"
         data:
@@ -41,7 +41,7 @@
         entity_id: group.family_devices
         state: 'not_home'
   action:
-    - service: notify.ios_iphonex
+    - service: notify.mobile_app_iphonex
       data:
         message: "誰か家にいます"
         data:
