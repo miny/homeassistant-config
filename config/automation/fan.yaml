@@ -10,6 +10,9 @@
   action:
     - service: homeassistant.turn_on
       entity_id: switch.ceiling_fan
+    - delay: 1
+    - service: homeassistant.turn_on
+      entity_id: switch.ceiling_fan
 
 - alias: Off Living Fan
   trigger:
@@ -17,6 +20,9 @@
       entity_id: climate.living_aircon
       to: 'off'
   action:
+    - service: homeassistant.turn_off
+      entity_id: switch.ceiling_fan
+    - delay: 1
     - service: homeassistant.turn_off
       entity_id: switch.ceiling_fan
     - service: homeassistant.turn_off

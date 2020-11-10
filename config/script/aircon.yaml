@@ -45,9 +45,14 @@ heat_living_floor_demand:
 heat_bedroom_demand:
   alias: Heat Bedroom on Demand
   sequence:
-    - condition: state
-      entity_id: binary_sensor.cond_very_cold
-      state: 'on'
+    - condition: or
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.entrance_temp
+          below: 15
+        - condition: state
+          entity_id: binary_sensor.cond_very_cold
+          state: 'on'
     - service: script.turn_on
       entity_id: script.heat_bedroom
 

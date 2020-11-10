@@ -397,3 +397,7 @@ sensor.last_update_trigger_5:
   hidden: true
 sensor.average_active_pace_4:
   hidden: true
+sensor.outdoor_average:
+  device_class: temperature
+  unit_of_measurement: °C
+  friendly_name: 1日平均気温

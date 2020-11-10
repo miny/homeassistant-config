@@ -26,19 +26,19 @@
 
 - platform: threshold
   name: cond_hot
-  entity_id: sensor.outdoor_stat_mean
+  entity_id: sensor.outdoor_average
   upper: 24.5
   hysteresis: 0.5
 
 - platform: threshold
   name: cond_cold
-  entity_id: sensor.outdoor_stat_mean
+  entity_id: sensor.outdoor_average
   lower: 15.5
   hysteresis: 0.5
 
 - platform: threshold
   name: cond_very_cold
-  entity_id: sensor.outdoor_stat_mean
+  entity_id: sensor.outdoor_average
   lower: 12.0
   hysteresis: 0.5
 

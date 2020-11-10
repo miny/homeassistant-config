@@ -92,6 +92,7 @@ setting:
   name: Setting
   control: hidden
   entities:
+    - sensor.outdoor_average
     - sensor.outdoor_stat_mean
     - binary_sensor.cond_hot
     - binary_sensor.cond_cold

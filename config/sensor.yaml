@@ -34,6 +34,13 @@
   max_age:
     hours: 24
 
+- platform: filter
+  name: outdoor_average
+  entity_id: sensor.reference
+  filters:
+    - filter: time_simple_moving_average
+      window_size: "24:00"
+
 - platform: template
   sensors:
     reference:
