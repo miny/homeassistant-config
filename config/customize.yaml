@@ -142,6 +142,7 @@ sun.sun:
   hidden: true
 sensor.season:
   hidden: true
+  friendly_name: 季節
 switch.cool_living:
   friendly_name: リビング 涼しく
   icon: mdi:weather-windy

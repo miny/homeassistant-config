@@ -6,7 +6,7 @@ homeassistant:
   unit_system: metric
   time_zone: Asia/Tokyo
 
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - '/config/doorphone'
     - '/config/text'
 
@@ -22,7 +22,6 @@ homeassistant:
       hidden: true
 
 recorder:
-  purge_interval: 1
   purge_keep_days: 7
   include:
     entities:
@@ -72,17 +71,18 @@ proximity:
     unit_of_measurement: m
 
 http:
-  base_url:     !secret http_base_url
+#  external_url: !secret http_base_url
+#  internal_url: !secret http_base_url
 #  api_password: !secret http_password
 
 mqtt:
   broker: !secret mqtt_broker
 
 netatmo:
-  api_key:    !secret netatmo_api_key
-  secret_key: !secret netatmo_secret_key
-  username:   !secret netatmo_username
-  password:   !secret netatmo_password
+  client_id:     !secret netatmo_id
+  client_secret: !secret netatmo_secret
+#  username:   !secret netatmo_username
+#  password:   !secret netatmo_password
 
 wemo:
   static:
@@ -170,6 +170,8 @@ lock:
     state_topic:    "dio/in3"
     payload_lock:   "1"
     payload_unlock: "0"
+    state_locked:   "1"
+    state_unlocked: "0"
     retain: true
  
 camera:

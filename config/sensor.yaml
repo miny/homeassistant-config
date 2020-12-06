@@ -93,10 +93,10 @@
 #  select: 'description:nth-of-type(3)'
 #  value_template: '{{ value }}'
 
-- platform: netatmo
-  modules:
-    - House
-    - Outdoor
+#- platform: netatmo
+#  modules:
+#    - House
+#    - Outdoor
 
 - platform: scrape
   name: JR info

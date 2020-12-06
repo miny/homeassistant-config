@@ -11,7 +11,6 @@
 
 useful_spring:
   name: Useful Spring
-  control: hidden
   entities:
     - switch.heat_living
     - switch.heat_bedroom
@@ -20,14 +19,12 @@ useful_spring:
 
 useful_summer:
   name: Useful Summer
-  control: hidden
   entities:
     - switch.cool_living
     - switch.cool_bedroom
 
 useful_autumn:
   name: Useful Autumn
-  control: hidden
   entities:
     - switch.heat_living
     - switch.heat_bedroom
@@ -36,14 +33,12 @@ useful_autumn:
 
 useful_winter:
   name: Useful Winter
-  control: hidden
   entities:
     - switch.heat_living
     - switch.heat_bedroom
 
 entrance:
   name: Entrance
-  control: hidden
   entities:
     - lock.door_lock
     - binary_sensor.hue_motion_sensor_motion
@@ -52,7 +47,6 @@ entrance:
 
 living:
   name: Living Room
-  control: hidden
   entities:
     - sensor.living_temperature
     - sensor.living_humidity
@@ -67,7 +61,6 @@ living:
 
 bedroom:
   name: Bed Room
-  control: hidden
   entities:
     - sensor.bedroom_temperature
     - sensor.bedroom_humidity
@@ -77,7 +70,6 @@ bedroom:
 
 house:
   name: House
-  control: hidden
   entities:
     - sensor.house_power
     - sensor.dishwasher_power
@@ -90,23 +82,19 @@ house:
 
 setting:
   name: Setting
-  control: hidden
   entities:
     - sensor.outdoor_average
-    - sensor.outdoor_stat_mean
     - binary_sensor.cond_hot
     - binary_sensor.cond_cold
     - binary_sensor.cond_very_cold
 
 music:
   name: Music
-  control: hidden
   entities:
     - media_player.squeezebox_bedroom
     - media_player.squeezebox_living
 
 family_devices:
-  control: hidden
   entities:
     - person.me
     - person.partner

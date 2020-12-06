@@ -3,14 +3,14 @@
 - platform: mqtt
   name: "Living Aircon"
   modes:
+    - "off"
     - "auto"
     - "cool"
     - "heat"
-    - "off"
   swing_modes:
-    - auto
+    - "auto"
   fan_modes:
-    - auto
+    - "auto"
   current_temperature_topic: "sensor/aircon/livingroom/temperature"
   power_command_topic:       "aircon/livingroom/power/set"
   power_state_topic:         "aircon/livingroom/power"
@@ -24,14 +24,14 @@
 - platform: mqtt
   name: "Bedroom Aircon"
   modes:
+    - "off"
     - "auto"
     - "cool"
     - "heat"
-    - "off"
   swing_modes:
-    - auto
+    - "auto"
   fan_modes:
-    - auto
+    - "auto"
   current_temperature_topic: "sensor/aircon/bedroom/temperature"
   power_command_topic:       "aircon/bedroom/power/set"
   power_state_topic:         "aircon/bedroom/power"
