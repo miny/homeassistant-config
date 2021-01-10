@@ -17,7 +17,7 @@ heat_bedroom:
     - service: climate.set_temperature
       data:
         entity_id: climate.bedroom_aircon
-        temperature: 24
+        temperature: 25
         hvac_mode: heat
 
 heat_living_demand:

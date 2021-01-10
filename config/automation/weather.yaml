@@ -41,7 +41,7 @@
     conditions:
       - condition: template
         value_template: >
-          {{ not is_state('sensor.jr_info', '山手線') }}
+          {{ not is_state('sensor.jr_info', '平常運転') }}
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'

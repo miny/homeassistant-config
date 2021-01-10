@@ -101,7 +101,7 @@
 - platform: scrape
   name: JR info
   scan_interval: 900
-  resource: http://traininfo.jreast.co.jp/train_info/kanto.aspx
-  select: "#direction_yamate"
-  value_template: '{{ (value.strip().replace("配信","").replace("更新履歴","")) }}'
+  resource: http://traininfo.jreast.co.jp/train_info/line.aspx?gid=1&lineid=yamanoteline
+  select: ".cardsBox"
+  value_template: '{{ value.strip() }}'
 

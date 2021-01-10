@@ -3,6 +3,8 @@ homeassistant:
   latitude:  !secret home_latitude
   longitude: !secret home_longitude
   elevation: !secret home_elevation
+  external_url: !secret external_url
+  internal_url: !secret internal_url
   unit_system: metric
   time_zone: Asia/Tokyo
 
@@ -22,34 +24,43 @@ homeassistant:
       hidden: true
 
 recorder:
-  purge_keep_days: 7
+  purge_keep_days: 10
   include:
     entities:
-      - binary_sensor.dishwasher
-      - binary_sensor.workday_sensor
-      - binary_sensor.cond_hot
-      - binary_sensor.cond_cold
-      - binary_sensor.cond_very_cold
-      - binary_sensor.hue_motion_sensor_motion
       - input_boolean.sleeping
+      - device_tracker.iphonex_gps
+      - device_tracker.iphone11_gps
+      - sensor.jr_info
+      - switch.washer
+    entity_globs:
+      - climate.*_aircon
+      - sensor.living_*
+      - sensor.bedroom_*
+      - sensor.outdoor_*
+      - sensor.netatmo_house_*
+      - sensor.netatmo_outdoor_*
+      - sensor.*_power
+      - sensor.entrance_*
+      - switch.floor_heater_*
     domains:
-      - sensor
-      - switch
-      - climate
+      - binary_sensor
       - media_player
-      - device_tracker
       - lock
       - fan
+      - person
+      - proximity
   exclude:
-    entities:
-      - switch.blind
-      - switch.ceiling_fan
-      - sensor.season
-      - sensor.trash_day
-      - sensor.visit_schedule
-      - sensor.weather_forecast
-      - sensor.living_temperature
-      - sensor.bedroom_temperature
+    domains:
+      - automation
+      - camera
+      - climate
+      - device_tracker
+      - group
+      - light
+      - remote
+      - script
+      - sensor
+      - switch
 
 zone:
   name: Home
@@ -91,6 +102,23 @@ wemo:
 hue:
 
 ios:
+  actions:
+    - name: ActionHeat
+      background_color: "#884444"
+      label:
+        text: "暖かくする"
+        color: "#ffaaaa"
+      icon:
+        icon: radiator
+        color: "#ffffff"
+    - name: ActionCool
+      background_color: "#444488"
+      label:
+        text: "涼しくする"
+        color: "#aaaaff"
+      icon:
+        icon: weather-windy
+        color: "#ffffff"
 
 homekit:
   filter:
