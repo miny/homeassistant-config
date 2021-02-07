@@ -43,10 +43,12 @@ sensor.living_temperature:
   device_class: temperature
   friendly_name: リビング 気温
   icon: mdi:thermometer
+  unit_of_measurement: °C
 sensor.bedroom_temperature:
   device_class: temperature
   friendly_name: 寝室 気温
   icon: mdi:thermometer
+  unit_of_measurement: °C
 device_tracker.iphonex:
   hidden: true
 proximity.home:
