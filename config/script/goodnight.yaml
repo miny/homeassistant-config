@@ -3,10 +3,8 @@ goodnight:
   sequence:
     - service: script.turn_on
       entity_id: script.off_living
-    - delay: 1
     - service: script.turn_on
       entity_id: script.check_dishwasher
-    - delay: 1
     - service: script.turn_on
       entity_id: script.off_heat_bedroom
 

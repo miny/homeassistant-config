@@ -139,10 +139,8 @@ off_living:
   sequence:
     - service: switch.turn_off
       entity_id: switch.floor_heater_living
-    - delay: 1
     - service: switch.turn_off
       entity_id: switch.floor_heater_kitchen
-    - delay: 1
     - service: homeassistant.turn_off
       entity_id: switch.ceiling_fan
     - service: homeassistant.turn_off
