@@ -36,6 +36,8 @@
       at: '09:15:00'
     - platform: time
       at: '09:25:00'
+    - platform: time
+      at: '09:45:00'
   condition:
     condition: and
     conditions:

@@ -49,7 +49,7 @@ heat_bedroom_demand:
       conditions:
         - condition: numeric_state
           entity_id: sensor.entrance_temp
-          below: 15
+          below: 16
         - condition: state
           entity_id: binary_sensor.cond_very_cold
           state: 'on'

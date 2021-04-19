@@ -92,6 +92,7 @@ proximity:
     unit_of_measurement: m
 
 http:
+  ip_ban_enabled: false
 #  external_url: !secret http_base_url
 #  internal_url: !secret http_base_url
 #  api_password: !secret http_password
@@ -221,6 +222,9 @@ tts:
   - platform: google_translate
     language: 'ja'
     service_name: google_say
+#tts:
+#  - platform: watson_tts
+#    watson_apikey: !secret watson_apikey
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/
