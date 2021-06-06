@@ -18,6 +18,11 @@
       entity_id: 'sensor.netatmo_house_co2'
       above: 1000
       for:
+        minutes: 90
+    - platform: numeric_state
+      entity_id: 'sensor.netatmo_house_co2'
+      above: 1000
+      for:
         minutes: 120
   action:
     - service: tts.google_say

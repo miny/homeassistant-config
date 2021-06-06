@@ -1,0 +1,21 @@
+##
+## tag
+##
+
+- id: door_lock_toggle
+  alias: "Toggle Door Lock/Unlock"
+  mode: single
+  max_exceeded: silent
+  trigger:
+    - platform: event
+      event_type: tag_scanned
+      event_data:
+        tag_id: 0b7c503f-f0b8-4f05-81fc-a99e5d36370e
+  condition:
+    - condition: state
+      entity_id: group.family_devices
+      state: 'home'
+  action:
+    - service: "lock.{{ 'lock' if states('lock.door_lock') == 'unlocked' else 'unlock' }}"
+      entity_id: lock.door_lock
+
