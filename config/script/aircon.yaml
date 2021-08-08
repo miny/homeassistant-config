@@ -75,7 +75,7 @@ cool_bedroom:
     - service: climate.set_temperature
       data:
         entity_id: climate.bedroom_aircon
-        temperature: 30
+        temperature: 29
         hvac_mode: cool
 
 cool_living_demand:
